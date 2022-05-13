@@ -1,6 +1,8 @@
 //VIDEOGAMES API
 export const getApiData = () => {
-  fetch("https://api.rawg.io/api/games?&key=8ccf9cf3b49742ef87faf5cceb530685")
+  return fetch(
+    "https://api.rawg.io/api/games?&key=8ccf9cf3b49742ef87faf5cceb530685"
+  )
     .then((response) => response.json())
     .then((data) => {
       //console.log(data);
@@ -17,7 +19,7 @@ export const getApiData = () => {
           language: [...new Set(game.tags.map((lang) => lang.language))],
         };
       });
-      console.log(cleanData);
+      //console.log(cleanData);
       return cleanData;
     })
     .catch((err) => console.error(err));

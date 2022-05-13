@@ -5,9 +5,10 @@ export const VideoGamesApp = () => {
   const [games, setGames] = useState([]);
 
   useEffect(() => {
-    //Execute on the assambling
+    getApiData().then((gameData) => {
+      setGames(gameData);
+    });
   }, []);
-  getApiData();
 
   return <h1>VideoGamesApp</h1>;
 };
