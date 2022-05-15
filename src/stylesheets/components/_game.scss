@@ -1,0 +1,44 @@
+.card {
+  align-items: center;
+  background: #ffffff44;
+  border: 0.3px solid rgba(255, 255, 255, 0.77);
+  display: flex;
+  flex-direction: column;
+  font-size: 1.3rem;
+  height: 16rem;
+  margin-bottom: 1.5rem;
+  padding: 0.6rem 0.6rem 0 0.6rem;
+  width: 100%;
+
+  @include tablet {
+    font-size: 0.9rem;
+  }
+
+  &__container--img {
+    height: 18rem;
+    overflow: hidden;
+    width: 100%;
+
+    @include tablet {
+      height: 8rem;
+      min-height: 8rem;
+    }
+  }
+  &__img {
+    min-height: 8rem;
+    object-fit: cover;
+  }
+  &__title {
+    text-align: center;
+  }
+  &__genres {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &--genre {
+      padding: 3px;
+    }
+  }
+}

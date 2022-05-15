@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getApiData } from "../services/getApiData";
+import { GameList } from "./GamesList";
 
 export const VideoGamesApp = () => {
   const [games, setGames] = useState([]);
@@ -10,5 +11,10 @@ export const VideoGamesApp = () => {
     });
   }, []);
 
-  return <h1>VideoGamesApp</h1>;
+  return (
+    <>
+      <h1>VideoGamesApp</h1>
+      <GameList games={games} />
+    </>
+  );
 };

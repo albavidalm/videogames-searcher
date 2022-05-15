@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { VideoGamesApp } from "./components/VideoGamesApp";
-import "./index.css";
+import "./stylesheets/index.css";
+import "./stylesheets/VideoGamesApp.scss";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<VideoGamesApp />);
