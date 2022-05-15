@@ -1,4 +1,5 @@
 import React from "react";
+import getIconPlatform from "../services/getIconPlatform";
 
 const Game = (props) => {
   //console.log(props.game.genres);
@@ -14,8 +15,13 @@ const Game = (props) => {
   const renderPlatform = () => {
     return props.game.platforms.map((platform, id) => {
       return (
-        <li key={id} className="card__platforms--platform">
-          {platform}
+        <li>
+          <img
+            key={id}
+            className="logo_plat"
+            src={getIconPlatform(platform)}
+            alt={platform}
+          />
         </li>
       );
     });
@@ -23,7 +29,7 @@ const Game = (props) => {
 
   return (
     <li className="card">
-      <div class="card__container--img">
+      <div className="card__container--img">
         <img
           className="card__img"
           src={props.game.cover}

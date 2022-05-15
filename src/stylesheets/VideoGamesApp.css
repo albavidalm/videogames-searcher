@@ -379,15 +379,16 @@ template {
       -ms-flex-direction: column;
           flex-direction: column;
   font-size: 1.3rem;
-  height: 16rem;
+  height: 18rem;
   margin-bottom: 1.5rem;
-  padding: 0.6rem 0.6rem 0 0.6rem;
+  padding: 0.6rem;
   width: 100%;
 }
 
 @media all and (min-width: 768px) {
   .card {
     font-size: 0.9rem;
+    height: 20rem;
   }
 }
 
@@ -414,7 +415,7 @@ template {
   text-align: center;
 }
 
-.card__genres {
+.card__genres, .card__platforms {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -429,7 +430,12 @@ template {
           justify-content: center;
 }
 
-.card__genres--genre {
+.card__genres--genre, .card__genres--platform, .card__platforms--genre, .card__platforms--platform {
+  padding: 3px;
+}
+
+.logo_plat {
+  width: 1.8rem;
   padding: 3px;
 }
 
