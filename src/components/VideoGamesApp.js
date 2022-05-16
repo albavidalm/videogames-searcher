@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getApiData } from "../services/getApiData";
 import ls from "../services/local-storage";
+import Filters from "./Filters";
 import { GameList } from "./GamesList";
 
 export const VideoGamesApp = () => {
@@ -13,6 +14,7 @@ export const VideoGamesApp = () => {
         setGames(gamesData);
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   //Saving at LS
@@ -23,6 +25,7 @@ export const VideoGamesApp = () => {
   return (
     <>
       <h1>VideoGamesApp</h1>
+      <Filters />
       <GameList games={games} />
     </>
   );
