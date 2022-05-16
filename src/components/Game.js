@@ -18,7 +18,7 @@ const Game = (props) => {
         <li>
           <img
             key={id}
-            className="logo_plat"
+            className="card__platforms--logo"
             src={getIconPlatform(platform)}
             alt={platform}
           />

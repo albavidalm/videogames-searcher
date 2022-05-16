@@ -39,14 +39,14 @@
     flex-wrap: wrap;
     justify-content: center;
 
+    &--logo {
+      height: 32px;
+      padding: 6px;
+    }
+
     &--genre,
     &--platform {
       padding: 3px;
     }
   }
-}
-
-.logo_plat {
-  width: 1.8rem;
-  padding: 3px;
 }
