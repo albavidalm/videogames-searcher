@@ -430,12 +430,12 @@ template {
           justify-content: center;
 }
 
-.card__genres--genre, .card__genres--platform, .card__platforms--genre, .card__platforms--platform {
-  padding: 3px;
+.card__genres--logo, .card__platforms--logo {
+  height: 32px;
+  padding: 6px;
 }
 
-.logo_plat {
-  width: 1.8rem;
+.card__genres--genre, .card__genres--platform, .card__platforms--genre, .card__platforms--platform {
   padding: 3px;
 }
 

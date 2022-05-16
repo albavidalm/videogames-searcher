@@ -15,9 +15,8 @@ const Game = (props) => {
   const renderPlatform = () => {
     return props.game.platforms.map((platform, id) => {
       return (
-        <li>
+        <li key={id}>
           <img
-            key={id}
             className="card__platforms--logo"
             src={getIconPlatform(platform)}
             alt={platform}
