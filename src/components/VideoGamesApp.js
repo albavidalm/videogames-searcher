@@ -6,6 +6,8 @@ import { GameList } from "./GamesList";
 
 export const VideoGamesApp = () => {
   const [games, setGames] = useState(ls.get("games", []));
+  const [nameFilter, setNameFilter] = useState(ls.get("nameFilter", ""));
+  const [genreFilter, setGenreFilter] = useState(ls.get("genreFilter", "All"));
 
   //Checking if data at LS
   useEffect(() => {
@@ -22,10 +24,19 @@ export const VideoGamesApp = () => {
     ls.set("games", games);
   }, [games]);
 
+  //Event handlers
+  const handleFilter = (data) => {
+    if (data.key === "name") {
+      setNameFilter(data.value);
+    } else if (data.key === "genre") {
+      setGenreFilter(data.value);
+    }
+  };
+
   return (
     <>
       <h1>VideoGamesApp</h1>
-      <Filters />
+      <Filters handleFilter={handleFilter} />
       <GameList games={games} />
     </>
   );

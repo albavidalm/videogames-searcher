@@ -5,14 +5,14 @@ import FilterSort from "./FilterSort";
 
 const Filters = (props) => {
   return (
-    <setcion>
+    <section>
       <form>
-        <FilterByName />
-        <FilterByGenre />
+        <FilterByName handleFilter={props.handleFilter} />
+        <FilterByGenre handleFilter={props.handleFilter} />
         <FilterByPlatform />
         <FilterSort />
       </form>
-    </setcion>
+    </section>
   );
 };
 

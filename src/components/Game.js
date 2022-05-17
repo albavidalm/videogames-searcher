@@ -32,7 +32,7 @@ const Game = (props) => {
         <img
           className="card__img"
           src={props.game.cover}
-          alt={`${props.game.name} cover`}
+          alt={`${props.game.name} "cover"`}
           title={props.game.name}
         />
       </div>

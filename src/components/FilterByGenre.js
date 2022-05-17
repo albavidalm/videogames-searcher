@@ -1,11 +1,22 @@
 const FilterByGenre = (props) => {
+  const handleChange = (ev) => {
+    props.handleFilter({
+      value: ev.target.value,
+      key: "genre",
+    });
+  };
   return (
     <>
       <label className="formGenre__label" htmlFor="genre">
         Genre:
       </label>
 
-      <select className="formGenre__input--text" name="genre" id="genre">
+      <select
+        className="formGenre__input--text"
+        name="genre"
+        id="genre"
+        onChange={handleChange}
+      >
         <option value="all">All</option>
         <option value="Action">Action</option>
         <option value="Adventure">Adventure</option>

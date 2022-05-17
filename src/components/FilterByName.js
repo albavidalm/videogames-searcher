@@ -1,4 +1,10 @@
 const FilterByName = (props) => {
+  const handleChange = (ev) => {
+    props.handleFilter({
+      value: ev.target.value,
+      key: "name",
+    });
+  };
   return (
     <>
       <label className="formName__label" htmlFor="name">
@@ -11,6 +17,7 @@ const FilterByName = (props) => {
         name="name"
         id="name"
         autoFocus
+        onChange={handleChange}
       />
     </>
   );
