@@ -20,6 +20,7 @@ export const getApiData = () => {
         };
       });
       //console.log(cleanData);
+
       return cleanData;
     })
     .catch((err) => console.error(err));

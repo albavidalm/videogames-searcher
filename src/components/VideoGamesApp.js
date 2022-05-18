@@ -51,14 +51,10 @@ export const VideoGamesApp = () => {
     .filter((game) => {
       return game.name.toUpperCase().includes(nameFilter.toUpperCase());
     })
-    .filter((game) => {
-      // if (genreFilter === "all") {
-      //   return true;
-      // } else {
-      //   return game.genres.includes(genreFilter);
-      // }
-      return genreFilter === "all" ? true : game.genres.includes(genreFilter);
-    })
+    // //Filter by genre hardcored
+    // .filter((game) => {
+    //   return genreFilter === "all" ? true : game.genres.includes(genreFilter);
+    // })
     .filter((game) => {
       return platformFilter === "all"
         ? true
@@ -77,6 +73,10 @@ export const VideoGamesApp = () => {
     });
   }
 
+  const getGenres = () => {
+    return games.map((game) => game.genres);
+  };
+
   // //Reset button
   // const handleReset = () => {
   //   setNameFilter("");
@@ -87,7 +87,7 @@ export const VideoGamesApp = () => {
   return (
     <>
       <h1>VideoGamesApp</h1>
-      <Filters handleFilter={handleFilter} />
+      <Filters genres={getGenres()} handleFilter={handleFilter} />
       {/* <ResetButton handleReset={handleReset} /> */}
       <GameList games={filteredGames} />
     </>

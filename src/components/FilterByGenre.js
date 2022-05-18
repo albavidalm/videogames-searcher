@@ -1,32 +1,26 @@
 const FilterByGenre = (props) => {
-  const handleChange = (ev) => {
-    props.handleFilter({
-      value: ev.target.value,
-      key: "genre",
-    });
-  };
+  const genresList = [];
+
+  const categories = [...props.genres].forEach((genre) =>
+    genre.forEach((category) => genresList.push(category))
+  );
+
+  const genresListClean = [...new Set(genresList)].map((genre, index) => {
+    return (
+      <p key={index}>
+        <input type="checkbox" name="genre" value="all" />
+        {genre}
+      </p>
+    );
+  });
+
   return (
     <>
-      <label className="formGenre__label" htmlFor="genre">
+      <label className="form__label" htmlFor="genre">
         Genre:
       </label>
 
-      <select
-        className="formGenre__input--text"
-        name="genre"
-        id="genre"
-        onChange={handleChange}
-      >
-        <option value="all">All</option>
-        <option value="Action">Action</option>
-        <option value="Adventure">Adventure</option>
-        <option value="RPG">RPG</option>
-        <option value="Shooter">Shooter</option>
-        <option value="Puzzle">Puzzle</option>
-        <option value="Indie">Indie</option>
-        <option value="Platformer">Platformer</option>
-        <option value="Massively Multiplayer">Massively Multiplayer</option>
-      </select>
+      {genresListClean}
     </>
   );
 };

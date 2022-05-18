@@ -8,11 +8,12 @@ const Filters = (props) => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
   };
+  //console.log(props);
   return (
     <section>
       <form className="form" onSubmit={handleSubmit}>
         <FilterByName handleFilter={props.handleFilter} />
-        <FilterByGenre handleFilter={props.handleFilter} />
+        <FilterByGenre genres={props.genres} />
         <FilterByPlatform handleFilter={props.handleFilter} />
         <FilterSort handleFilter={props.handleFilter} />
       </form>
