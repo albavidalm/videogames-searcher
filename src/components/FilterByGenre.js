@@ -8,7 +8,7 @@ const FilterByGenre = (props) => {
   const genresListClean = [...new Set(genresList)].map((genre, index) => {
     return (
       <p key={index}>
-        <input type="checkbox" name="genre" value="all" />
+        <input type="checkbox" name="genre" value={genre} />
         {genre}
       </p>
     );
