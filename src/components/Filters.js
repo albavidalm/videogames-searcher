@@ -13,7 +13,7 @@ const Filters = (props) => {
       <form className="form" onSubmit={handleSubmit}>
         <FilterByName handleFilter={props.handleFilter} />
         <FilterByGenre handleFilter={props.handleFilter} />
-        <FilterByPlatform />
+        <FilterByPlatform handleFilter={props.handleFilter} />
         <FilterSort handleFilter={props.handleFilter} />
       </form>
     </section>

@@ -1,4 +1,10 @@
 const FilterByPlatform = (props) => {
+  const handleChange = (ev) => {
+    props.handleFilter({
+      value: ev.target.value,
+      key: "platform",
+    });
+  };
   return (
     <>
       <label className="formPlatform__label" htmlFor="platform">
@@ -9,6 +15,7 @@ const FilterByPlatform = (props) => {
         className="formPlatform__input--text"
         name="platform"
         id="platform"
+        onChange={handleChange}
       >
         <option value="all">All</option>
         <option value="Android">Android</option>

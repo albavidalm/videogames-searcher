@@ -9,6 +9,9 @@ export const VideoGamesApp = () => {
   const [games, setGames] = useState(ls.get("games", []));
   const [nameFilter, setNameFilter] = useState(ls.get("nameFilter", ""));
   const [genreFilter, setGenreFilter] = useState(ls.get("genreFilter", "all"));
+  const [platformFilter, setPlatformFilter] = useState(
+    ls.get("platformFilter", "all")
+  );
   const [sortFilter, setSortFilter] = useState(ls.get("sortFilter", false));
 
   // Checking if data at LS
@@ -26,8 +29,9 @@ export const VideoGamesApp = () => {
     ls.set("games", games);
     ls.set("nameFilter", nameFilter);
     ls.set("genreFilter", genreFilter);
+    ls.set("platformFilter", platformFilter);
     ls.set("sortFilter", sortFilter);
-  }, [games, nameFilter, genreFilter, sortFilter]);
+  }, [games, nameFilter, genreFilter, platformFilter, sortFilter]);
 
   //Event handlers
   const handleFilter = (data) => {
@@ -35,6 +39,8 @@ export const VideoGamesApp = () => {
       setNameFilter(data.value);
     } else if (data.key === "genre") {
       setGenreFilter(data.value);
+    } else if (data.key === "platform") {
+      setPlatformFilter(data.value);
     } else if (data.key === "sort") {
       setSortFilter(data.checked);
     }
@@ -52,8 +58,12 @@ export const VideoGamesApp = () => {
       //   return game.genres.includes(genreFilter);
       // }
       return genreFilter === "all" ? true : game.genres.includes(genreFilter);
+    })
+    .filter((game) => {
+      return platformFilter === "all"
+        ? true
+        : game.platforms.includes(platformFilter);
     });
-  console.log(filteredGames);
 
   if (sortFilter) {
     filteredGames.sort((a, b) => {
