@@ -9,6 +9,7 @@ export const VideoGamesApp = () => {
   const [games, setGames] = useState(ls.get("games", []));
   const [nameFilter, setNameFilter] = useState(ls.get("nameFilter", ""));
   const [genreFilter, setGenreFilter] = useState(ls.get("genreFilter", "all"));
+  const [sortFilter, setSortFilter] = useState(ls.get("sortFilter", false));
 
   // Checking if data at LS
   useEffect(() => {
@@ -25,7 +26,8 @@ export const VideoGamesApp = () => {
     ls.set("games", games);
     ls.set("nameFilter", nameFilter);
     ls.set("genreFilter", genreFilter);
-  }, [games, nameFilter, genreFilter]);
+    ls.set("sortFilter", sortFilter);
+  }, [games, nameFilter, genreFilter, sortFilter]);
 
   //Event handlers
   const handleFilter = (data) => {
@@ -33,6 +35,8 @@ export const VideoGamesApp = () => {
       setNameFilter(data.value);
     } else if (data.key === "genre") {
       setGenreFilter(data.value);
+    } else if (data.key === "sort") {
+      setSortFilter(data.checked);
     }
   };
 
@@ -51,10 +55,23 @@ export const VideoGamesApp = () => {
     });
   console.log(filteredGames);
 
+  if (sortFilter) {
+    filteredGames.sort((a, b) => {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (a.name < b.name) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+
   // //Reset button
   // const handleReset = () => {
   //   setNameFilter("");
   //   setGenreFilter("all");
+  //   setSortFilter(false);
   // };
 
   return (

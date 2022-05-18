@@ -1,10 +1,10 @@
 const FilterSort = (props) => {
-  // const handleChange = (ev) => {
-  //   props.handleFilter({
-  //     checked: ev.currentTarget.checked,
-  //     key: "ordered",
-  //   });
-  // };
+  const handleChange = (ev) => {
+    props.handleFilter({
+      checked: ev.currentTarget.checked,
+      key: "sort",
+    });
+  };
 
   return (
     <>
@@ -17,8 +17,8 @@ const FilterSort = (props) => {
         id="sort"
         value="sort"
         type="checkbox"
-        // onChange={handleChange}
-        // checked={props.ordered}
+        onChange={handleChange}
+        checked={props.sort}
       />
     </>
   );
