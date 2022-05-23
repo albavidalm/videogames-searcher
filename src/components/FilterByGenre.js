@@ -32,7 +32,14 @@ const FilterByGenre = (props) => {
       <label className="form__label" htmlFor="genre">
         Genre:
       </label>
-
+      <input
+        type="radio"
+        name="genre"
+        value="all"
+        onChange={handleChange}
+        defaultChecked
+      />
+      All
       {genresListClean}
     </>
   );
