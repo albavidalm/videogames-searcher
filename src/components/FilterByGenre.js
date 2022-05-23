@@ -1,4 +1,12 @@
 const FilterByGenre = (props) => {
+  const handleChange = (ev) => {
+    // console.log(ev.target.value);
+    props.handleFilter({
+      value: ev.target.value,
+      key: "genre",
+    });
+  };
+
   const genresList = [];
 
   const categories = [...props.genres].forEach((genre) =>
@@ -7,10 +15,15 @@ const FilterByGenre = (props) => {
 
   const genresListClean = [...new Set(genresList)].map((genre, index) => {
     return (
-      <p key={index}>
-        <input type="checkbox" name="genre" value={genre} />
+      <label key={index}>
+        <input
+          type="radio"
+          name="genre"
+          value={genre}
+          onChange={handleChange}
+        />
         {genre}
-      </p>
+      </label>
     );
   });
 

@@ -8,7 +8,7 @@ import { GameList } from "./GamesList";
 export const VideoGamesApp = () => {
   const [games, setGames] = useState(ls.get("games", []));
   const [nameFilter, setNameFilter] = useState(ls.get("nameFilter", ""));
-  const [genreFilter, setGenreFilter] = useState(ls.get("genreFilter", "all"));
+  const [genreFilter, setGenreFilter] = useState(ls.get("genreFilter", ""));
   const [platformFilter, setPlatformFilter] = useState(
     ls.get("platformFilter", "all")
   );
@@ -55,6 +55,11 @@ export const VideoGamesApp = () => {
     // .filter((game) => {
     //   return genreFilter === "all" ? true : game.genres.includes(genreFilter);
     // })
+    // Filter for dynamic gender
+    .filter((game) => {
+      return genreFilter === "" ? true : game.genres.includes(genreFilter);
+    })
+
     .filter((game) => {
       return platformFilter === "all"
         ? true
