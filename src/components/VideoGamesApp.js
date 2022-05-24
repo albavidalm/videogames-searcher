@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { useLocation, matchPath } from "react-router";
 import { getApiData } from "../services/getApiData";
 import ls from "../services/local-storage";
@@ -7,6 +7,7 @@ import Filters from "./Filters";
 import GameList from "./GamesList";
 import GameDetail from "./GameDetail";
 import NotFoundPage from "./NotFoundPage";
+import NotFoundGame from "./NotFoundGame";
 import ResetButton from "./ResetButton";
 
 const VideoGamesApp = () => {
@@ -119,6 +120,7 @@ const VideoGamesApp = () => {
               />
               <ResetButton handleReset={handleReset} />
               <GameList games={filteredGames} />
+              {/* <NotFoundGame nameFilter={nameFilter} games={filteredGames} /> */}
             </>
           }
         />
@@ -126,6 +128,7 @@ const VideoGamesApp = () => {
           path="/game/:id"
           element={<GameDetail gameDetail={gameFound} />}
         />
+
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 

@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
-const NotFoundPage = () => {
+
+const NotFoundGame = () => {
   return (
     <>
       <Link className="goback" to="/">
         ⬅️ Go back
       </Link>
-      <h2>NotFoundPage</h2>
+      <h2>NotFoundGame</h2>
     </>
   );
 };
 
-export default NotFoundPage;
+export default NotFoundGame;

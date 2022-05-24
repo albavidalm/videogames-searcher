@@ -7,7 +7,7 @@ const GameDetail = (props) => {
   const renderScreenshots = () => {
     return props.gameDetail.screenshots.map((screenshot, id) => {
       return (
-        <li key={id}>
+        <li className="card_img_screen" key={id}>
           <img className="card__screenshots" src={screenshot} alt="game" />
         </li>
       );
@@ -66,7 +66,9 @@ const GameDetail = (props) => {
                 <span className="boldtitle">Released: </span>
                 {props.gameDetail.released}
               </li>
-              <ul className="screenshotUl">{renderScreenshots()}</ul>
+              <ul className="screenshotUl">
+                Screenshots: {renderScreenshots()}
+              </ul>
             </section>
           </div>
         </div>
