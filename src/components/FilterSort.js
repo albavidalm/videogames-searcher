@@ -18,7 +18,7 @@ const FilterSort = (props) => {
         value="sort"
         type="checkbox"
         onChange={handleChange}
-        checked={props.sort}
+        checked={props.sortFilter}
       />
     </>
   );

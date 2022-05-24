@@ -14,6 +14,7 @@ const FilterByPlatform = (props) => {
       <select
         className="formPlatform__input--text"
         name="platform"
+        value={props.platformFilter}
         id="platform"
         onChange={handleChange}
       >

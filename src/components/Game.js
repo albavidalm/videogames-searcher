@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import getIconPlatform from "../services/getIconPlatform";
 
 const Game = (props) => {
@@ -27,19 +28,22 @@ const Game = (props) => {
   };
 
   return (
-    <li className="card">
-      <div className="card__container--img">
-        <img
-          className="card__img"
-          src={props.game.cover}
-          alt={`${props.game.name} "cover"`}
-          title={props.game.name}
-        />
-      </div>
-      <h4 className="card__title">{props.game.name}</h4>
-      <ul className="card__genres">{renderGenres()}</ul>
-      <ul className="card__platforms">{renderPlatform()}</ul>
-    </li>
+    <Link to={`/game/${props.game.id}`}>
+      <li className="card">
+        {/* <a href={`/game/${props.game.id}`}>Details</a> */}
+        <div className="card__container--img">
+          <img
+            className="card__img"
+            src={props.game.cover}
+            alt={`${props.game.name} "cover"`}
+            title={props.game.name}
+          />
+        </div>
+        <h4 className="card__title">{props.game.name}</h4>
+        <ul className="card__genres">{renderGenres()}</ul>
+        <ul className="card__platforms">{renderPlatform()}</ul>
+      </li>
+    </Link>
   );
 };
 

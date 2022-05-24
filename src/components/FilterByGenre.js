@@ -21,6 +21,7 @@ const FilterByGenre = (props) => {
           name="genre"
           value={genre}
           onChange={handleChange}
+          checked={genre === props.genreFilter}
         />
         {genre}
       </label>

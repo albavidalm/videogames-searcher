@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import { useLocation, matchPath } from "react-router";
 import { getApiData } from "../services/getApiData";
 import ls from "../services/local-storage";
 import Filters from "./Filters";
-import { GameList } from "./GamesList";
-// import ResetButton from "./ResetButton";
+import GameList from "./GamesList";
+import GameDetail from "./GameDetail";
+import NotFoundPage from "./NotFoundPage";
+import ResetButton from "./ResetButton";
 
-export const VideoGamesApp = () => {
+const VideoGamesApp = () => {
   const [games, setGames] = useState(ls.get("games", []));
   const [nameFilter, setNameFilter] = useState(ls.get("nameFilter", ""));
   const [genreFilter, setGenreFilter] = useState(ls.get("genreFilter", "all"));
@@ -33,7 +37,7 @@ export const VideoGamesApp = () => {
     ls.set("sortFilter", sortFilter);
   }, [games, nameFilter, genreFilter, platformFilter, sortFilter]);
 
-  //Event handlers
+  // Event handlers
   const handleFilter = (data) => {
     if (data.key === "name") {
       setNameFilter(data.value);
@@ -44,6 +48,14 @@ export const VideoGamesApp = () => {
     } else if (data.key === "sort") {
       setSortFilter(data.checked);
     }
+  };
+
+  // Reset
+  const handleReset = () => {
+    setNameFilter("");
+    setGenreFilter("all");
+    setPlatformFilter("all");
+    setSortFilter(false);
   };
 
   // Render
@@ -82,19 +94,44 @@ export const VideoGamesApp = () => {
     return games.map((game) => game.genres);
   };
 
-  // //Reset button
-  // const handleReset = () => {
-  //   setNameFilter("");
-  //   setGenreFilter("all");
-  //   setSortFilter(false);
-  // };
+  // Dynamic routes for specific game id
+  const { pathname } = useLocation();
+  const routeData = matchPath("/game/:id", pathname);
+  const gameId = routeData !== null ? routeData.params.id : null;
+  const gameFound = games.find((game) => game.id === parseInt(gameId));
 
   return (
     <>
       <h1>VideoGamesApp</h1>
-      <Filters genres={getGenres()} handleFilter={handleFilter} />
-      {/* <ResetButton handleReset={handleReset} /> */}
-      <GameList games={filteredGames} />
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Filters
+                genres={getGenres()}
+                handleFilter={handleFilter}
+                nameFilter={nameFilter}
+                platformFilter={platformFilter}
+                genreFilter={genreFilter}
+                sortFilter={sortFilter}
+              />
+              <ResetButton handleReset={handleReset} />
+              <GameList games={filteredGames} />
+            </>
+          }
+        />
+        <Route
+          path="/game/:id"
+          element={<GameDetail gameDetail={gameFound} />}
+        />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+
+      <div>Footer</div>
     </>
   );
 };
+
+export default VideoGamesApp;

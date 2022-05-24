@@ -2,23 +2,32 @@ import FilterByName from "./FilterByName";
 import FilterByGenre from "./FilterByGenre";
 import FilterByPlatform from "./FilterByPlatform";
 import FilterSort from "./FilterSort";
-// import ResetButton from "./ResetButton";
 
 const Filters = (props) => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
   };
-  //console.log(props);
+
   return (
     <section>
       <form className="form" onSubmit={handleSubmit}>
-        <FilterByName handleFilter={props.handleFilter} />
+        <FilterByName
+          handleFilter={props.handleFilter}
+          nameFilter={props.nameFilter}
+        />
         <FilterByGenre
           genres={props.genres}
           handleFilter={props.handleFilter}
+          genreFilter={props.genreFilter}
         />
-        <FilterByPlatform handleFilter={props.handleFilter} />
-        <FilterSort handleFilter={props.handleFilter} />
+        <FilterByPlatform
+          handleFilter={props.handleFilter}
+          platformFilter={props.platformFilter}
+        />
+        <FilterSort
+          handleFilter={props.handleFilter}
+          sortFilter={props.sortFilter}
+        />
       </form>
     </section>
   );
