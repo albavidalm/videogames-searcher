@@ -4,6 +4,7 @@ import { useLocation, matchPath } from "react-router";
 import { getApiData } from "../services/getApiData";
 import ls from "../services/local-storage";
 import Filters from "./Filters";
+import Pagination from "./Pagination";
 import GameList from "./GamesList";
 import GameDetail from "./GameDetail";
 import NotFoundPage from "./NotFoundPage";
@@ -12,6 +13,7 @@ import ResetButton from "./ResetButton";
 
 const VideoGamesApp = () => {
   const [games, setGames] = useState(ls.get("games", []));
+  const [info, setInfo] = useState(ls.get("info", {}));
   const [nameFilter, setNameFilter] = useState(ls.get("nameFilter", ""));
   const [genreFilter, setGenreFilter] = useState(ls.get("genreFilter", "all"));
   const [platformFilter, setPlatformFilter] = useState(
@@ -37,6 +39,7 @@ const VideoGamesApp = () => {
   // Saving at LS
   useEffect(() => {
     ls.set("games", games);
+    ls.set("info", info);
     ls.set("nameFilter", nameFilter);
     ls.set("genreFilter", genreFilter);
     ls.set("platformFilter", platformFilter);
@@ -44,6 +47,7 @@ const VideoGamesApp = () => {
     ls.set("sortDateFilter", sortDateFilter);
   }, [
     games,
+    info,
     nameFilter,
     genreFilter,
     platformFilter,
@@ -137,11 +141,15 @@ const VideoGamesApp = () => {
                 filteredGames={filteredGames}
               />
               <ResetButton handleReset={handleReset} />
+              <Pagination />
 
               {filteredGames.length === 0 ? (
                 <NotFoundGame nameFilter={nameFilter} />
               ) : (
-                <GameList games={filteredGames} />
+                <>
+                  <GameList games={filteredGames} />
+                  <Pagination />
+                </>
               )}
             </>
           }
