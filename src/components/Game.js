@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import getIconPlatform from "../services/getIconPlatform";
 
 const Game = (props) => {
-  //console.log(props.game.genres);
   const renderGenres = () => {
     return props.game.genres.map((genre, id) => {
       return (

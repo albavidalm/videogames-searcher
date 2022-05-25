@@ -32,6 +32,7 @@ const Filters = (props) => {
         <FilterSortByDate
           handleFilter={props.handleFilter}
           sortDateFilter={props.sortDateFilter}
+          filteredgames={props.filteredGames}
         />
       </form>
     </section>

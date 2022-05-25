@@ -21,7 +21,7 @@ const VideoGamesApp = () => {
     ls.get("sortNameFilter", false)
   );
   const [sortDateFilter, setSortDateFilter] = useState(
-    ls.get("sortDateFilter", false)
+    ls.get("sortDateFilter", "none")
   );
 
   // Checking if data at LS
@@ -62,7 +62,7 @@ const VideoGamesApp = () => {
     } else if (data.key === "sort") {
       setSortNameFilter(data.checked);
     } else if (data.key === "date") {
-      setSortDateFilter(data.checked);
+      setSortDateFilter(data.value);
     }
   };
 
@@ -72,7 +72,7 @@ const VideoGamesApp = () => {
     setGenreFilter("all");
     setPlatformFilter("all");
     setSortNameFilter(false);
-    setSortDateFilter(false);
+    setSortDateFilter("none");
   };
 
   // Render
@@ -106,17 +106,6 @@ const VideoGamesApp = () => {
       return 0;
     });
   }
-  if (sortDateFilter) {
-    filteredGames.sort((a, b) => {
-      if (a.released > b.released) {
-        return 1;
-      }
-      if (a.released < b.released) {
-        return -1;
-      }
-      return 0;
-    });
-  }
 
   const getGenres = () => {
     return games.map((game) => game.genres);
@@ -145,6 +134,7 @@ const VideoGamesApp = () => {
                 genreFilter={genreFilter}
                 sortNameFilter={sortNameFilter}
                 sortDateFilter={sortDateFilter}
+                filteredGames={filteredGames}
               />
               <ResetButton handleReset={handleReset} />
 
