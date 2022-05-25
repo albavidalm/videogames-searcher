@@ -4,15 +4,6 @@ import { Link } from "react-router-dom";
 
 const GameDetail = (props) => {
   //console.log(props);
-  const renderScreenshots = () => {
-    return props.gameDetail.screenshots.map((screenshot, id) => {
-      return (
-        <li className="card_img_screen" key={id}>
-          <img className="card__screenshots" src={screenshot} alt="game" />
-        </li>
-      );
-    });
-  };
   const renderPlatform = () => {
     return props.gameDetail.platforms.map((platform, id) => {
       return (
@@ -22,6 +13,18 @@ const GameDetail = (props) => {
             src={getIconPlatform(platform)}
             alt={platform}
           />
+        </li>
+      );
+    });
+  };
+
+  const renderScreenshots = () => {
+    return props.gameDetail.screenshots.map((screenshot, id) => {
+      return (
+        <li className="card_img_screen" key={id}>
+          <a href={screenshot} target="_blank" rel="noreferrer">
+            <img className="card__screenshots" src={screenshot} alt="game" />
+          </a>
         </li>
       );
     });
