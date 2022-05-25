@@ -42,6 +42,7 @@ const Game = (props) => {
         <h4 className="card__title">{props.game.name}</h4>
         <ul className="card__genres">{renderGenres()}</ul>
         <ul className="card__platforms">{renderPlatform()}</ul>
+        <p className="card__date">{props.game.released}</p>
       </li>
     </Link>
   );

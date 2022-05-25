@@ -5,7 +5,7 @@ export const getApiData = () => {
   )
     .then((response) => response.json())
     .then((data) => {
-      //console.log(data);
+      console.log(data);
       const cleanData = data.results.map((game) => {
         return {
           name: game.name,

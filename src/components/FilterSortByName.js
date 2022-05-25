@@ -1,4 +1,4 @@
-const FilterSort = (props) => {
+const FilterSortByName = (props) => {
   const handleChange = (ev) => {
     props.handleFilter({
       checked: ev.currentTarget.checked,
@@ -18,9 +18,9 @@ const FilterSort = (props) => {
         value="sort"
         type="checkbox"
         onChange={handleChange}
-        checked={props.sortFilter}
+        checked={props.sortNameFilter}
       />
     </>
   );
 };
-export default FilterSort;
+export default FilterSortByName;

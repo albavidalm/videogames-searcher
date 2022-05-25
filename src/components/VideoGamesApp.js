@@ -17,7 +17,12 @@ const VideoGamesApp = () => {
   const [platformFilter, setPlatformFilter] = useState(
     ls.get("platformFilter", "all")
   );
-  const [sortFilter, setSortFilter] = useState(ls.get("sortFilter", false));
+  const [sortNameFilter, setSortNameFilter] = useState(
+    ls.get("sortNameFilter", false)
+  );
+  const [sortDateFilter, setSortDateFilter] = useState(
+    ls.get("sortDateFilter", false)
+  );
 
   // Checking if data at LS
   useEffect(() => {
@@ -35,8 +40,16 @@ const VideoGamesApp = () => {
     ls.set("nameFilter", nameFilter);
     ls.set("genreFilter", genreFilter);
     ls.set("platformFilter", platformFilter);
-    ls.set("sortFilter", sortFilter);
-  }, [games, nameFilter, genreFilter, platformFilter, sortFilter]);
+    ls.set("sortNameFilter", sortNameFilter);
+    ls.set("sortDateFilter", sortDateFilter);
+  }, [
+    games,
+    nameFilter,
+    genreFilter,
+    platformFilter,
+    sortNameFilter,
+    sortDateFilter,
+  ]);
 
   // Event handlers
   const handleFilter = (data) => {
@@ -47,7 +60,9 @@ const VideoGamesApp = () => {
     } else if (data.key === "platform") {
       setPlatformFilter(data.value);
     } else if (data.key === "sort") {
-      setSortFilter(data.checked);
+      setSortNameFilter(data.checked);
+    } else if (data.key === "date") {
+      setSortDateFilter(data.checked);
     }
   };
 
@@ -56,7 +71,8 @@ const VideoGamesApp = () => {
     setNameFilter("");
     setGenreFilter("all");
     setPlatformFilter("all");
-    setSortFilter(false);
+    setSortNameFilter(false);
+    setSortDateFilter(false);
   };
 
   // Render
@@ -79,12 +95,23 @@ const VideoGamesApp = () => {
         : game.platforms.includes(platformFilter);
     });
 
-  if (sortFilter) {
+  if (sortNameFilter) {
     filteredGames.sort((a, b) => {
       if (a.name > b.name) {
         return 1;
       }
       if (a.name < b.name) {
+        return -1;
+      }
+      return 0;
+    });
+  }
+  if (sortDateFilter) {
+    filteredGames.sort((a, b) => {
+      if (a.released > b.released) {
+        return 1;
+      }
+      if (a.released < b.released) {
         return -1;
       }
       return 0;
@@ -116,7 +143,8 @@ const VideoGamesApp = () => {
                 nameFilter={nameFilter}
                 platformFilter={platformFilter}
                 genreFilter={genreFilter}
-                sortFilter={sortFilter}
+                sortNameFilter={sortNameFilter}
+                sortDateFilter={sortDateFilter}
               />
               <ResetButton handleReset={handleReset} />
 

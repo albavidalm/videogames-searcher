@@ -1,7 +1,8 @@
 import FilterByName from "./FilterByName";
 import FilterByGenre from "./FilterByGenre";
 import FilterByPlatform from "./FilterByPlatform";
-import FilterSort from "./FilterSort";
+import FilterSortByName from "./FilterSortByName";
+import FilterSortByDate from "./FilterSortByDate";
 
 const Filters = (props) => {
   const handleSubmit = (ev) => {
@@ -24,9 +25,13 @@ const Filters = (props) => {
           handleFilter={props.handleFilter}
           platformFilter={props.platformFilter}
         />
-        <FilterSort
+        <FilterSortByName
           handleFilter={props.handleFilter}
-          sortFilter={props.sortFilter}
+          sortNameFilter={props.sortNameFilter}
+        />
+        <FilterSortByDate
+          handleFilter={props.handleFilter}
+          sortDateFilter={props.sortDateFilter}
         />
       </form>
     </section>
