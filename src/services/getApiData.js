@@ -19,9 +19,12 @@ export const getApiData = () => {
           language: [...new Set(game.tags.map((lang) => lang.language))],
         };
       });
-      //console.log(cleanData);
-
-      return cleanData;
+      // return cleanData;
+      return {
+        cleanData: cleanData,
+        nextPage: data.next,
+        prevPage: data.previous,
+      };
     })
     .catch((err) => console.error(err));
 };

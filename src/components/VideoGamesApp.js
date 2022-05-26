@@ -13,7 +13,9 @@ import ResetButton from "./ResetButton";
 
 const VideoGamesApp = () => {
   const [games, setGames] = useState(ls.get("games", []));
-  const [info, setInfo] = useState(ls.get("info", {}));
+  const [prevPage, setPrevPage] = useState();
+  const [nextPage, setNextPage] = useState();
+  const [page, setPage] = useState(0);
   const [nameFilter, setNameFilter] = useState(ls.get("nameFilter", ""));
   const [genreFilter, setGenreFilter] = useState(ls.get("genreFilter", "all"));
   const [platformFilter, setPlatformFilter] = useState(
@@ -30,16 +32,21 @@ const VideoGamesApp = () => {
   useEffect(() => {
     if (games.length === 0) {
       getApiData().then((gamesData) => {
-        setGames(gamesData);
+        setDataGames(gamesData);
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  console.log(nextPage);
+  const setDataGames = (data) => {
+    setGames(data.cleanData);
+    setPrevPage(data.prevPage);
+    setNextPage(data.nextPage);
+  };
 
   // Saving at LS
   useEffect(() => {
     ls.set("games", games);
-    ls.set("info", info);
     ls.set("nameFilter", nameFilter);
     ls.set("genreFilter", genreFilter);
     ls.set("platformFilter", platformFilter);
@@ -47,7 +54,6 @@ const VideoGamesApp = () => {
     ls.set("sortDateFilter", sortDateFilter);
   }, [
     games,
-    info,
     nameFilter,
     genreFilter,
     platformFilter,
