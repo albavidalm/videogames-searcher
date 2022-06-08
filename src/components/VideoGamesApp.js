@@ -3,46 +3,37 @@ import { Routes, Route } from "react-router-dom";
 import { useLocation, matchPath } from "react-router";
 import { getApiData } from "../services/getApiData";
 import ls from "../services/local-storage";
+import Header from "./Header";
+import Footer from "./Footer";
 import Filters from "./Filters";
-import Pagination from "./Pagination";
 import GameList from "./GamesList";
 import GameDetail from "./GameDetail";
 import NotFoundPage from "./NotFoundPage";
 import NotFoundGame from "./NotFoundGame";
-import ResetButton from "./ResetButton";
+import Pagination from "./Pagination";
 
 const VideoGamesApp = () => {
   const [games, setGames] = useState(ls.get("games", []));
-  const [prevPage, setPrevPage] = useState();
-  const [nextPage, setNextPage] = useState();
-  const [page, setPage] = useState(0);
   const [nameFilter, setNameFilter] = useState(ls.get("nameFilter", ""));
   const [genreFilter, setGenreFilter] = useState(ls.get("genreFilter", "all"));
   const [platformFilter, setPlatformFilter] = useState(
     ls.get("platformFilter", "all")
   );
-  const [sortNameFilter, setSortNameFilter] = useState(
-    ls.get("sortNameFilter", false)
-  );
-  const [sortDateFilter, setSortDateFilter] = useState(
-    ls.get("sortDateFilter", "none")
-  );
+  const [sortFilter, setSortFilter] = useState(ls.get("sortFilter", "none"));
+  const [prevPage, setPrevPage] = useState(ls.get("prevPage", ""));
+  const [nextPage, setNextPage] = useState(ls.get("nextPage", ""));
 
   // Checking if data at LS
   useEffect(() => {
     if (games.length === 0) {
       getApiData().then((gamesData) => {
-        setDataGames(gamesData);
+        setGames(gamesData.cleanData);
+        setPrevPage(gamesData.prevPage);
+        setNextPage(gamesData.nextPage);
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(nextPage);
-  const setDataGames = (data) => {
-    setGames(data.cleanData);
-    setPrevPage(data.prevPage);
-    setNextPage(data.nextPage);
-  };
 
   // Saving at LS
   useEffect(() => {
@@ -50,15 +41,17 @@ const VideoGamesApp = () => {
     ls.set("nameFilter", nameFilter);
     ls.set("genreFilter", genreFilter);
     ls.set("platformFilter", platformFilter);
-    ls.set("sortNameFilter", sortNameFilter);
-    ls.set("sortDateFilter", sortDateFilter);
+    ls.set("sortFilter", sortFilter);
+    ls.set("prevPage", prevPage);
+    ls.set("nextPage", nextPage);
   }, [
     games,
     nameFilter,
     genreFilter,
     platformFilter,
-    sortNameFilter,
-    sortDateFilter,
+    sortFilter,
+    prevPage,
+    nextPage,
   ]);
 
   // Event handlers
@@ -70,10 +63,22 @@ const VideoGamesApp = () => {
     } else if (data.key === "platform") {
       setPlatformFilter(data.value);
     } else if (data.key === "sort") {
-      setSortNameFilter(data.checked);
-    } else if (data.key === "date") {
-      setSortDateFilter(data.value);
+      setSortFilter(data.value);
     }
+  };
+
+  // Getting data for pagination
+  const onPrevious = () => {
+    getApiData(prevPage).then((gamesData) => setPrevPage(gamesData.prevPage));
+  };
+  //debugger;
+  const onNext = () => {
+    getApiData(nextPage).then((gamesData) => {
+      setNextPage(nextPage);
+      setGames(gamesData.cleanData);
+      console.log(gamesData.cleanData);
+      console.log("Next page -->" + nextPage);
+    });
   };
 
   // Reset
@@ -81,8 +86,7 @@ const VideoGamesApp = () => {
     setNameFilter("");
     setGenreFilter("all");
     setPlatformFilter("all");
-    setSortNameFilter(false);
-    setSortDateFilter("none");
+    setSortFilter("none");
   };
 
   // Render
@@ -105,18 +109,6 @@ const VideoGamesApp = () => {
         : game.platforms.includes(platformFilter);
     });
 
-  if (sortNameFilter) {
-    filteredGames.sort((a, b) => {
-      if (a.name > b.name) {
-        return 1;
-      }
-      if (a.name < b.name) {
-        return -1;
-      }
-      return 0;
-    });
-  }
-
   const getGenres = () => {
     return games.map((game) => game.genres);
   };
@@ -129,7 +121,8 @@ const VideoGamesApp = () => {
 
   return (
     <>
-      <h1>VideoGamesApp</h1>
+      {/* <h1 className="title">VideoGamesApp</h1> */}
+      <Header />
 
       <Routes>
         <Route
@@ -142,20 +135,20 @@ const VideoGamesApp = () => {
                 nameFilter={nameFilter}
                 platformFilter={platformFilter}
                 genreFilter={genreFilter}
-                sortNameFilter={sortNameFilter}
-                sortDateFilter={sortDateFilter}
+                sortFilter={sortFilter}
                 filteredGames={filteredGames}
+                handleReset={handleReset}
               />
-              <ResetButton handleReset={handleReset} />
-              <Pagination />
-
+              <Pagination
+                prevPage={prevPage}
+                nextPage={nextPage}
+                onPrevious={onPrevious}
+                onNext={onNext}
+              />
               {filteredGames.length === 0 ? (
                 <NotFoundGame nameFilter={nameFilter} />
               ) : (
-                <>
-                  <GameList games={filteredGames} />
-                  <Pagination />
-                </>
+                <GameList games={filteredGames} />
               )}
             </>
           }
@@ -173,7 +166,7 @@ const VideoGamesApp = () => {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
-      <div>Footer</div>
+      <Footer />
     </>
   );
 };

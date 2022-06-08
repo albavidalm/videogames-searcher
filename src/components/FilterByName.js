@@ -7,15 +7,13 @@ const FilterByName = (props) => {
   };
   return (
     <>
-      <label className="formName__label" htmlFor="name">
-        Filter by game name:
-      </label>
+      <label className="formName__label" htmlFor="name"></label>
       <input
-        className="formName__input--text"
-        placeholder="Search for"
-        type="text"
+        className="formName__input"
+        type="search"
         name="name"
         id="name"
+        placeholder="🔍 Search by name"
         value={props.nameFilter}
         autoFocus
         onChange={handleChange}

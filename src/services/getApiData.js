@@ -1,7 +1,8 @@
 //VIDEOGAMES API
 export const getApiData = () => {
   return fetch(
-    "https://api.rawg.io/api/games?&key=8ccf9cf3b49742ef87faf5cceb530685"
+    "https://api.rawg.io/api/games?&key=30a842076eed4d7cb75b7a01f8307a40"
+    // "https://api.rawg.io/api/games?key=30a842076eed4d7cb75b7a01f8307a40&page=2"
   )
     .then((response) => response.json())
     .then((data) => {
@@ -21,7 +22,7 @@ export const getApiData = () => {
       });
       // return cleanData;
       return {
-        cleanData: cleanData,
+        cleanData,
         nextPage: data.next,
         prevPage: data.previous,
       };

@@ -15,34 +15,37 @@ const FilterByGenre = (props) => {
 
   const genresListClean = [...new Set(genresList)].map((genre, index) => {
     return (
-      <label key={index}>
+      <label key={index} className="rad-label">
         <input
           type="radio"
           name="genre"
+          className="rad-input"
           value={genre}
           onChange={handleChange}
           checked={genre === props.genreFilter}
         />
-        {genre}
+        <div class="rad-design"></div>
+        <div class="rad-text">{genre}</div>
       </label>
     );
   });
 
   return (
-    <>
-      <label className="form__label" htmlFor="genre">
-        Genre:
+    <div className="genre__options">
+      <label className="rad-label">
+        <input
+          type="radio"
+          name="genre"
+          className="rad-input"
+          value="all"
+          onChange={handleChange}
+          defaultChecked
+        />
+        <div class="rad-design"></div>
+        <div class="rad-text">All</div>
       </label>
-      <input
-        type="radio"
-        name="genre"
-        value="all"
-        onChange={handleChange}
-        defaultChecked
-      />
-      All
       {genresListClean}
-    </>
+    </div>
   );
 };
 

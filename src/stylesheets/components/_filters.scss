@@ -1,3 +1,102 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+//Filter by Name _____
+
 .formName__label {
   color: #fff;
 }
+
+.formName__input {
+  width: 100%;
+}
+
+//Filter by genre ____
+.genre__options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.rad-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 100px;
+  padding: 0.4rem 0.6rem;
+  margin: 0.2rem 0;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.rad-label:hover,
+.rad-label:focus-within {
+  background: hsla(0, 0%, 80%, 0.14);
+}
+
+.rad-input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  z-index: -1;
+}
+
+.rad-design {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100px;
+
+  background: linear-gradient(
+    to right bottom,
+    hsl(154, 97%, 62%),
+    hsl(225, 97%, 62%)
+  );
+  position: relative;
+}
+
+.rad-design::before {
+  content: "";
+
+  display: inline-block;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+
+  background: hsl(0, 0%, 90%);
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.rad-input:checked + .rad-design::before {
+  transform: scale(0);
+}
+
+.rad-text {
+  color: hsl(0, 0%, 60%);
+  margin-left: 0.5rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  font-size: 12px;
+
+  transition: 0.3s;
+}
+
+.rad-input:checked ~ .rad-text {
+  color: hsl(0, 0%, 40%);
+}
+
+/* ABS */
+/* ====================================================== */
+// .abs-site-link {
+//   position: fixed;
+//   bottom: 40px;
+//   left: 20px;
+//   color: hsla(0, 0%, 0%, 0.5);
+//   font-size: 16px;
+// }

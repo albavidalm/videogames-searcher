@@ -1,19 +1,25 @@
 import React from "react";
 
-const Pagination = (previous, next) => {
-  const handlePrev = () => {};
-  const handleNext = () => {};
+const Pagination = ({ prevPage, nextPage, onPrevious, onNext }) => {
+  const handlePrev = () => {
+    onPrevious();
+  };
+  const handleNext = () => {
+    onNext();
+    // console.log(nextPage);
+  };
+
   return (
     <nav>
       <ul className="pagination">
-        {previous && (
+        {prevPage && (
           <li className="pagination__li">
             <button className="pagination__li--button" onClick={handlePrev}>
               ⏪Prev
             </button>
           </li>
         )}
-        {next && (
+        {nextPage && (
           <li>
             <button className="pagination__li--button" onClick={handleNext}>
               Next⏩

@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   font-size: 1.3rem;
-  height: 18rem;
+  height: 26rem;
   margin-bottom: 1.5rem;
   padding: 0.6rem;
   width: 100%;
@@ -17,7 +17,8 @@
   }
 
   &__container--img {
-    height: 18rem;
+    min-height: 11.4rem;
+    //height: 18rem;
     overflow: hidden;
     width: 100%;
 
@@ -27,7 +28,7 @@
     }
   }
   &__img {
-    min-height: 8rem;
+    min-height: 11.4rem;
     object-fit: cover;
   }
   &__title {

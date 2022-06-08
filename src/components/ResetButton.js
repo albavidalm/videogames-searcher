@@ -4,7 +4,7 @@ const Reset = (props) => {
   };
   return (
     <button className="form__reset" type="button" onClick={handleReset}>
-      Reset
+      Clear all
     </button>
   );
 };

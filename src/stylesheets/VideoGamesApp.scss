@@ -1,7 +1,11 @@
 @import "core/reset";
 @import "core/mixins";
+@import "core/variables";
+@import "components/header";
 @import "components/game";
 @import "components/gamedetail";
 @import "components/gamelist";
 @import "components/filters";
+@import "components/resetbutton";
 @import "components/pagination";
+@import "components/footer";
