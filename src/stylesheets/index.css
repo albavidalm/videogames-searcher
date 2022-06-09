@@ -2,6 +2,16 @@
   font-family: Helvetica, Arial, sans-serif;
 }
 body {
-  background-color: #1b323e;
+  background: linear-gradient(
+    90deg,
+    #1b323e,
+    #1e3846,
+    #223f4e,
+    #254556,
+    #294c5e,
+    #2d5266,
+    #30596e,
+    #346077
+  );
   padding: 1rem;
 }

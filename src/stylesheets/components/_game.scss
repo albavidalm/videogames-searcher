@@ -1,7 +1,7 @@
 .card {
   align-items: center;
-  background: #ffffff44;
-  border: 0.3px solid rgba(255, 255, 255, 0.77);
+  //background: #ffffff44;
+  border: 0.3px solid #008dd5;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -33,6 +33,12 @@
   }
   &__title {
     text-align: center;
+    color: #fff;
+    font-family: $font-game_title;
+  }
+  &__date {
+    font-family: $font-game_genre;
+    font-size: 12px;
   }
   &__genres,
   &__platforms {
@@ -49,6 +55,10 @@
     &--genre,
     &--platform {
       padding: 3px;
+    }
+    &--genre {
+      font-family: $font-game_genre;
+      font-size: 12px;
     }
   }
 }
