@@ -76,8 +76,8 @@ const VideoGamesApp = () => {
     getApiData(nextPage).then((gamesData) => {
       setNextPage(nextPage);
       setGames(gamesData.cleanData);
-      console.log(gamesData.cleanData);
-      console.log("Next page -->" + nextPage);
+      // console.log(gamesData.cleanData);
+      // console.log("Next page -->" + nextPage);
     });
   };
 
@@ -121,14 +121,13 @@ const VideoGamesApp = () => {
 
   return (
     <>
-      {/* <h1 className="title">VideoGamesApp</h1> */}
       <Header />
 
       <Routes>
         <Route
           path="/"
           element={
-            <>
+            <section className="main">
               <Filters
                 genres={getGenres()}
                 handleFilter={handleFilter}
@@ -139,18 +138,20 @@ const VideoGamesApp = () => {
                 filteredGames={filteredGames}
                 handleReset={handleReset}
               />
-              <Pagination
-                prevPage={prevPage}
-                nextPage={nextPage}
-                onPrevious={onPrevious}
-                onNext={onNext}
-              />
-              {filteredGames.length === 0 ? (
-                <NotFoundGame nameFilter={nameFilter} />
-              ) : (
-                <GameList games={filteredGames} />
-              )}
-            </>
+              <section className="gameList">
+                <Pagination
+                  prevPage={prevPage}
+                  nextPage={nextPage}
+                  onPrevious={onPrevious}
+                  onNext={onNext}
+                />
+                {filteredGames.length === 0 ? (
+                  <NotFoundGame nameFilter={nameFilter} />
+                ) : (
+                  <GameList games={filteredGames} />
+                )}
+              </section>
+            </section>
           }
         />
 

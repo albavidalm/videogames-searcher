@@ -52,7 +52,7 @@ const FilterSort = (props) => {
 
   return (
     <>
-      <label className="formSortDate__label" htmlFor="sort">
+      <label className="filterTitle" htmlFor="sort">
         Sort
       </label>
 

@@ -1,19 +1,57 @@
 .form {
   display: flex;
   flex-direction: column;
+  @include desktop {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+  &__select {
+    display: flex;
+    flex-direction: column;
+    @include tablet {
+      flex-direction: row;
+      justify-content: center;
+    }
+    @include desktop {
+      flex-direction: column;
+    }
+  }
 }
 
-//Filter by Name _____
-
-.formName__label {
+//Generic ___________________________
+.filterTitle {
   color: #fff;
+  margin-bottom: 0.2rem;
+  font-size: 1.02rem;
+  font-weight: bold;
+  @include tablet {
+    margin-right: 0.4rem;
+  }
+}
+.formName__input,
+.formPlatform__select,
+.formDate__select,
+.genre__options {
+  margin-bottom: 1rem;
 }
 
+.formPlatform__select {
+  @include tablet {
+    margin-right: 2rem;
+  }
+}
+
+//Filter by Name ___________________________
 .formName__input {
   width: 100%;
 }
 
-//Filter by genre ____
+//Filter by genre __________________________
+.titleGenre {
+  margin-top: 0;
+}
+
 .genre__options {
   display: flex;
   flex-direction: row;
@@ -90,13 +128,3 @@
 .rad-input:checked ~ .rad-text {
   color: hsl(0, 0%, 40%);
 }
-
-/* ABS */
-/* ====================================================== */
-// .abs-site-link {
-//   position: fixed;
-//   bottom: 40px;
-//   left: 20px;
-//   color: hsla(0, 0%, 0%, 0.5);
-//   font-size: 16px;
-// }

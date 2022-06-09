@@ -1,0 +1,7 @@
+.main {
+  @include desktop {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-column-gap: 1.6rem;
+  }
+}

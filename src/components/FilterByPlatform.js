@@ -7,12 +7,12 @@ const FilterByPlatform = (props) => {
   };
   return (
     <>
-      <label className="formPlatform__label" htmlFor="platform">
+      <label className="filterTitle" htmlFor="platform">
         Platform
       </label>
 
       <select
-        className="formPlatform__input--text"
+        className="formPlatform__select"
         name="platform"
         value={props.platformFilter}
         id="platform"

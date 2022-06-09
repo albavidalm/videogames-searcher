@@ -7,7 +7,7 @@ const FilterByName = (props) => {
   };
   return (
     <>
-      <label className="formName__label" htmlFor="name"></label>
+      <label className="filterTitle" htmlFor="name"></label>
       <input
         className="formName__input"
         type="search"

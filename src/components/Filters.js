@@ -10,7 +10,7 @@ const Filters = (props) => {
   };
 
   return (
-    <section>
+    <>
       <form className="form" onSubmit={handleSubmit}>
         <FilterByName
           handleFilter={props.handleFilter}
@@ -28,7 +28,7 @@ const Filters = (props) => {
           />
         </div>
         <>
-          <h3 className="filterTitle">Genre</h3>
+          <h3 className="filterTitle titleGenre">Genre</h3>
           <FilterByGenre
             genres={props.genres}
             handleFilter={props.handleFilter}
@@ -37,7 +37,7 @@ const Filters = (props) => {
         </>
         <ResetButton handleReset={props.handleReset} />
       </form>
-    </section>
+    </>
   );
 };
 

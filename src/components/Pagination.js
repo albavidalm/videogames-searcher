@@ -15,14 +15,14 @@ const Pagination = ({ prevPage, nextPage, onPrevious, onNext }) => {
         {prevPage && (
           <li className="pagination__li">
             <button className="pagination__li--button" onClick={handlePrev}>
-              ⏪Prev
+              <i class="fa-solid fa-backward"></i> Prev
             </button>
           </li>
         )}
         {nextPage && (
           <li>
             <button className="pagination__li--button" onClick={handleNext}>
-              Next⏩
+              Next <i class="fa-solid fa-forward"></i>
             </button>
           </li>
         )}
