@@ -1,6 +1,6 @@
 import React from "react";
 import getIconPlatform from "../services/getIconPlatform";
-import { Link } from "react-router-dom";
+import BtnGoBack from "./ui/BtnGoBack";
 
 const GameDetail = (props) => {
   //console.log(props);
@@ -32,10 +32,7 @@ const GameDetail = (props) => {
 
   return (
     <>
-      <Link className="goback" to="/">
-        ⬅️ Go back
-      </Link>
-
+      <BtnGoBack />
       <article className="detail">
         <div className="detail__card">
           <img

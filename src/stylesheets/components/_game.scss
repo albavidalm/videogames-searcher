@@ -1,7 +1,7 @@
 .card {
   align-items: center;
-  //background: #ffffff44;
-  border: 0.3px solid #008dd5;
+  border: 1px solid #008dd5;
+  border-radius: 10px;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -10,18 +10,26 @@
   margin-bottom: 1.5rem;
   padding: 0.6rem;
   width: 100%;
-
+  &:hover {
+    background-color: hsla(322, 87%, 56%, 0.4);
+    border: none;
+    box-shadow: hsla(322, 70%, 25%, 0.4) 0px 4px 12px;
+    transform: scale(1.02);
+  }
   @include tablet {
     font-size: 0.9rem;
     height: 20rem;
+    min-width: 14.22rem;
   }
-
+  @include desktop {
+    max-width: 26rem;
+    min-width: 15rem;
+  }
   &__container--img {
     min-height: 11.4rem;
     //height: 18rem;
     overflow: hidden;
     width: 100%;
-
     @include tablet {
       height: 8rem;
       min-height: 8rem;
@@ -36,9 +44,11 @@
     color: #fff;
     font-family: $font-game_title;
   }
-  &__date {
+  &__date,
+  &__genres--genre {
     font-family: $font-game_genre;
     font-size: 12px;
+    color: #aaaaaa;
   }
   &__genres,
   &__platforms {
@@ -55,10 +65,6 @@
     &--genre,
     &--platform {
       padding: 3px;
-    }
-    &--genre {
-      font-family: $font-game_genre;
-      font-size: 12px;
     }
   }
 }
