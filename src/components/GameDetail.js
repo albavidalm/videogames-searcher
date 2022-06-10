@@ -3,7 +3,7 @@ import getIconPlatform from "../services/getIconPlatform";
 import BtnGoBack from "./ui/BtnGoBack";
 
 const GameDetail = (props) => {
-  //console.log(props);
+  // console.log(props);
   const renderPlatform = () => {
     return props.gameDetail.platforms.map((platform, id) => {
       return (
@@ -13,6 +13,16 @@ const GameDetail = (props) => {
             src={getIconPlatform(platform)}
             alt={platform}
           />
+        </li>
+      );
+    });
+  };
+
+  const renderGenres = () => {
+    return props.gameDetail.genres.map((genre, id) => {
+      return (
+        <li key={id} className="card__genres--genre detail-text">
+          {genre}
         </li>
       );
     });
@@ -33,45 +43,47 @@ const GameDetail = (props) => {
   return (
     <>
       <BtnGoBack />
-      <article className="detail">
-        <div className="detail__card">
-          <img
-            className="detail__card--img"
-            src={props.gameDetail.cover}
-            alt={`${props.gameDetail.name}`}
-            title={props.gameDetail.name}
-          />
 
-          <div className="detail__card--info">
-            <h2 className="detail__card--info-title">
-              {props.gameDetail.name}
-            </h2>
-            <section>
-              <ul className="detail__card--info-description">
-                {renderPlatform()}
-              </ul>
-              <li>
-                <span className="boldtitle">Genre: </span>
-                {props.gameDetail.genres}
-              </li>
-              <li>
-                <span className="boldtitle">Language: </span>
-                {props.gameDetail.language}
-              </li>
-              <li>
-                <span className="boldtitle">Rating: </span>
-                {props.gameDetail.rating}
-              </li>
-              <li>
-                <span className="boldtitle">Released: </span>
-                {props.gameDetail.released}
-              </li>
-              <ul className="screenshotUl">
-                Screenshots: {renderScreenshots()}
-              </ul>
-            </section>
+      <article className="detail">
+        <img
+          className="detail__img"
+          src={props.gameDetail.cover}
+          alt={`${props.gameDetail.name}`}
+          title={props.gameDetail.name}
+        />
+
+        <section className="detail__info">
+          <h2 className="detail__info--title">{props.gameDetail.name}</h2>
+
+          <ul className="detail__info--container">{renderPlatform()}</ul>
+
+          <div className="detail__info--container">
+            <h3 className="filterTitle">Genre: </h3>
+            <ul className="card__genres detail__info--genres">
+              {renderGenres()}
+            </ul>
           </div>
-        </div>
+
+          <div className="detail__info--container">
+            <h3 className="filterTitle">Language: </h3>
+            <ul>
+              <li className="detail-text">{props.gameDetail.language}</li>
+            </ul>
+          </div>
+
+          <div className="detail__info--container">
+            <h3 className="filterTitle">Rating: </h3>
+            <p className="detail-text">{props.gameDetail.rating}</p>
+          </div>
+
+          <div className="detail__info--container">
+            <h3 className="filterTitle">Released:</h3>
+            <p className="detail-text">{props.gameDetail.released}</p>
+          </div>
+
+          <h3 className="filterTitle">Screenshots: </h3>
+          <ul className="screenshotUl">{renderScreenshots()}</ul>
+        </section>
       </article>
     </>
   );

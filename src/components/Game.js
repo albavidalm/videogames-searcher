@@ -7,7 +7,7 @@ const Game = (props) => {
     return props.game.genres.map((genre, id) => {
       return (
         <li key={id} className="card__genres--genre">
-          {genre}
+          | {genre} |
         </li>
       );
     });

@@ -1,8 +1,26 @@
-.detail__card {
+.detail {
+  margin: 0 auto;
   margin-top: 7rem;
-  &--info-description {
-    display: flex;
-    flex-direction: row;
+  margin-bottom: 20px;
+  border: 1px solid #008dd5;
+  border-radius: 10px;
+  max-width: 70rem;
+  &__img {
+    border-radius: 10px 10px 0 0;
+  }
+  &__info {
+    padding: 2rem;
+    &--title {
+      font-family: $font-game_title;
+    }
+    &--container {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+    }
+    &--genres {
+      justify-content: flex-start;
+    }
   }
 }
 
@@ -13,4 +31,10 @@
 
 .card__screenshots {
   padding: 0.5rem;
+}
+.detail-text {
+  color: $color-text;
+  font-family: $font-game_text;
+  font-size: 18px;
+  margin-left: 0.6rem;
 }
