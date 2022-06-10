@@ -1,6 +1,7 @@
 import React from "react";
 import getIconPlatform from "../services/getIconPlatform";
 import BtnGoBack from "./ui/BtnGoBack";
+import Carousel from "./Carousel";
 
 const GameDetail = (props) => {
   // console.log(props);
@@ -28,17 +29,17 @@ const GameDetail = (props) => {
     });
   };
 
-  const renderScreenshots = () => {
-    return props.gameDetail.screenshots.map((screenshot, id) => {
-      return (
-        <li className="card_img_screen" key={id}>
-          <a href={screenshot} target="_blank" rel="noreferrer">
-            <img className="card__screenshots" src={screenshot} alt="game" />
-          </a>
-        </li>
-      );
-    });
-  };
+  // const renderScreenshots = () => {
+  //   return props.gameDetail.screenshots.map((screenshot, id) => {
+  //     return (
+  //       <li className="card_img_screen" key={id}>
+  //         <a href={screenshot} target="_blank" rel="noreferrer">
+  //           <img className="card__screenshots" src={screenshot} alt="game" />
+  //         </a>
+  //       </li>
+  //     );
+  //   });
+  // };
 
   return (
     <>
@@ -81,8 +82,9 @@ const GameDetail = (props) => {
             <p className="detail-text">{props.gameDetail.released}</p>
           </div>
 
-          <h3 className="filterTitle">Screenshots: </h3>
-          <ul className="screenshotUl">{renderScreenshots()}</ul>
+          {/* <h3 className="filterTitle">Screenshots: </h3>
+          <ul className="screenshotUl">{renderScreenshots()}</ul> */}
+          <Carousel screenshots={props.gameDetail.screenshots} />
         </section>
       </article>
     </>
