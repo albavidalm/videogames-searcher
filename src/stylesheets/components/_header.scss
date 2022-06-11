@@ -3,34 +3,47 @@
   color: #fff;
   text-align: center;
   font-size: 2.2rem;
-  -webkit-animation: tracking-in-contract 0.8s
-    cubic-bezier(0.215, 0.61, 0.355, 1) both;
-  animation: tracking-in-contract 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+  animation: 0.8s text-shadow 2 alternate;
+  line-height: 1;
 }
 
-@-webkit-keyframes tracking-in-contract {
+@keyframes text-shadow {
   0% {
-    letter-spacing: 1em;
-    opacity: 0;
+    transform: skewX(-15deg);
+    text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb20e1, 0 0 0 #fefc4b;
   }
+
+  20% {
+    transform: skewX(15deg);
+    text-shadow: 0 0.125em 0 #0c2ffb, 0 0.25em 0 #2cfcfd, 0 -0.125em 0 #fb20e1,
+      0 -0.25em 0 #fefc4b;
+  }
+
+  30% {
+    transform: skewX(-15deg);
+    text-shadow: 0 -0.0625em 0 #0c2ffb, 0 -0.125em 0 #2cfcfd,
+      0 0.0625em 0 #fb20e1, 0 0.125em 0 #fefc4b;
+  }
+
   40% {
-    opacity: 0.6;
+    transform: skewX(15deg);
+    text-shadow: 0 0.03125em 0 #0c2ffb, 0 0.0625em 0 #2cfcfd,
+      0 -0.03125em 0 #fb20e1, 0 -0.0625em 0 #fefc4b;
   }
+
+  50% {
+    transform: skewX(0deg);
+    text-shadow: 0 0 0 #0c2ffb, 0 0 0 #2cfcfd, 0 0 0 #fb20e1, 0 0 0 #fefc4b;
+  }
+
   100% {
-    letter-spacing: normal;
-    opacity: 1;
+    transform: skewX(0deg);
   }
 }
-@keyframes tracking-in-contract {
-  0% {
-    letter-spacing: 1em;
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    letter-spacing: normal;
-    opacity: 1;
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 }

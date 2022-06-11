@@ -85,7 +85,7 @@ const GameDetail = (props) => {
 
           {/* <h3 className="filterTitle">Screenshots: </h3>
           <ul className="screenshotUl">{renderScreenshots()}</ul> */}
-          <Carousel screenshots={props.gameDetail.screenshots} />
+          {/* <Carousel screenshots={props.gameDetail.screenshots} /> */}
         </section>
       </article>
     </>
