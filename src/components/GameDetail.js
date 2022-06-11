@@ -46,12 +46,13 @@ const GameDetail = (props) => {
       <BtnGoBack />
 
       <article className="detail">
-        <img
+        <Carousel screenshots={props.gameDetail.screenshots} />
+        {/* <img
           className="detail__img"
           src={props.gameDetail.cover}
           alt={`${props.gameDetail.name}`}
           title={props.gameDetail.name}
-        />
+        /> */}
 
         <section className="detail__info">
           <h2 className="detail__info--title">{props.gameDetail.name}</h2>
