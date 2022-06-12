@@ -1,0 +1,23 @@
+.notFound {
+  &__title {
+    font-family: $font-game_title;
+    margin-top: 4rem;
+    text-align: center;
+    @include desktop {
+      margin-top: 0;
+    }
+  }
+  &__name {
+    font-family: $font-game_title;
+    color: $color-text;
+  }
+  &__text {
+    font-family: $font-game_text;
+    color: $color-text;
+    text-align: center;
+  }
+  &__img {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+}

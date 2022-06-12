@@ -1,18 +1,21 @@
-import android from "../images/android.svg";
-import ios from "../images/ios.svg";
-import linux from "../images/linux.svg";
-import macos from "../images/macos.svg";
-import pc from "../images/pc.svg";
-import ps3 from "../images/ps3.svg";
-import ps4 from "../images/ps4.svg";
-import ps5 from "../images/ps5.svg";
-import psvita from "../images/psvita.svg";
-import nswitch from "../images/nswitch.svg";
-import xone from "../images/xone.svg";
-import xseries from "../images/xseries.svg";
-import xbox from "../images/xbox.svg";
-import x360 from "../images/x360.svg";
-import web from "../images/web.svg";
+import android from "../assets/images/android.svg";
+import ios from "../assets/images/ios.svg";
+import linux from "../assets/images/linux.svg";
+import macos from "../assets/images/macos.svg";
+import pc from "../assets/images/pc.svg";
+import ps2 from "../assets/images/ps2.svg";
+import ps3 from "../assets/images/ps3.svg";
+import ps4 from "../assets/images/ps4.svg";
+import ps5 from "../assets/images/ps5.svg";
+import psvita from "../assets/images/psvita.svg";
+import n3ds from "../assets/images/n3ds.svg";
+import nswitch from "../assets/images/nswitch.svg";
+import xone from "../assets/images/xone.svg";
+import xseries from "../assets/images/xseries.svg";
+import xbox from "../assets/images/xbox.svg";
+import x360 from "../assets/images/x360.svg";
+import web from "../assets/images/web.svg";
+import wiiu from "../assets/images/wii-u.svg";
 
 const getIconPlatform = (platforms) => {
   return (
@@ -21,16 +24,19 @@ const getIconPlatform = (platforms) => {
     (platforms === "Linux" && linux) ||
     (platforms === "macOS" && macos) ||
     (platforms === "PC" && pc) ||
+    (platforms === "PlayStation 2" && ps2) ||
     (platforms === "PlayStation 3" && ps3) ||
     (platforms === "PlayStation 4" && ps4) ||
     (platforms === "PlayStation 5" && ps5) ||
     (platforms === "PS Vita" && psvita) ||
+    (platforms === "Nintendo 3DS" && n3ds) ||
     (platforms === "Nintendo Switch" && nswitch) ||
     (platforms === "Xbox One" && xone) ||
     (platforms === "Xbox Series S/X" && xseries) ||
     (platforms === "Xbox" && xbox) ||
     (platforms === "Xbox 360" && x360) ||
-    (platforms === "Web" && web)
+    (platforms === "Web" && web) ||
+    (platforms === "Wii U" && wiiu)
   );
 };
 

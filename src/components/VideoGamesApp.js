@@ -139,16 +139,18 @@ const VideoGamesApp = () => {
                 handleReset={handleReset}
               />
               <section className="gameList">
-                <Pagination
-                  prevPage={prevPage}
-                  nextPage={nextPage}
-                  onPrevious={onPrevious}
-                  onNext={onNext}
-                />
                 {filteredGames.length === 0 ? (
                   <NotFoundGame nameFilter={nameFilter} />
                 ) : (
-                  <GameList games={filteredGames} />
+                  <>
+                    <Pagination
+                      prevPage={prevPage}
+                      nextPage={nextPage}
+                      onPrevious={onPrevious}
+                      onNext={onNext}
+                    />
+                    <GameList games={filteredGames} />
+                  </>
                 )}
               </section>
             </section>

@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
 const NotFoundPage = () => {
   return (
     <>
-      <Link className="goback" to="/">
-        ⬅️ Go back
-      </Link>
-      <h2>NotFoundPage</h2>
+      <h2 className="notFound__title">We can't find this page</h2>
+      <img
+        alt="pc searching"
+        src="https://i.giphy.com/media/xT9IgFLfWUZigjoem4/giphy.webp"
+        className="notFound__img"
+      />
     </>
   );
 };
