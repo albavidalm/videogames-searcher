@@ -11,6 +11,7 @@ import GameDetail from "./GameDetail";
 import NotFoundPage from "./NotFoundPage";
 import NotFoundGame from "./NotFoundGame";
 import Pagination from "./Pagination";
+import NotFoundSearch from "./NotFoundSearch";
 
 const VideoGamesApp = () => {
   const [games, setGames] = useState(ls.get("games", []));
@@ -140,7 +141,10 @@ const VideoGamesApp = () => {
               />
               <section className="gameList">
                 {filteredGames.length === 0 ? (
-                  <NotFoundGame nameFilter={nameFilter} />
+                  <NotFoundSearch
+                    nameFilter={nameFilter}
+                    handleReset={handleReset}
+                  />
                 ) : (
                   <>
                     <Pagination

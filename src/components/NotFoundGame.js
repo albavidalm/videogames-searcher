@@ -1,17 +1,14 @@
-const NotFoundGame = (props) => {
+import BtnHome from "./ui/BtnHome";
+
+const NotFoundGame = () => {
   return (
     <>
-      <h2 className="notFound__title">
-        No video game matches your search{" "}
-        <span className="notFound__name">{props.nameFilter}</span>
-      </h2>
-      <p className="notFound__text">
-        Try again - check your spelling or enter less specific search terms.
-      </p>
+      <h2 className="notFound__title">We can't find this game</h2>
+      <BtnHome />
       <img
-        src="https://c.tenor.com/0SK8wi-u_gYAAAAd/no-signal-tv.gif"
-        alt="not signal tv"
-        className="notFound__img"
+        alt="broken arcade"
+        src="https://i.giphy.com/media/WSbKh5vqVHLee9u6bu/giphy.webp"
+        className="notPage notFound__img"
       />
     </>
   );

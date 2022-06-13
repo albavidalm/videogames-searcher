@@ -7,7 +7,7 @@
 .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
-  padding: 15px 40px;
+  padding: 0.688rem;
   display: inline-block;
   border-radius: 100px;
   transition: all 0.2s;
@@ -66,4 +66,10 @@
     opacity: 1;
     transform: translateY(0px);
   }
+}
+
+// BTN HOME
+.home {
+  display: flex;
+  justify-content: center;
 }

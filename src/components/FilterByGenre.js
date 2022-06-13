@@ -24,8 +24,8 @@ const FilterByGenre = (props) => {
           onChange={handleChange}
           checked={genre === props.genreFilter}
         />
-        <div class="rad-design"></div>
-        <div class="rad-text">{genre}</div>
+        <div className="rad-design"></div>
+        <div className="rad-text">{genre}</div>
       </label>
     );
   });
@@ -41,8 +41,8 @@ const FilterByGenre = (props) => {
           onChange={handleChange}
           defaultChecked
         />
-        <div class="rad-design"></div>
-        <div class="rad-text">All</div>
+        <div className="rad-design"></div>
+        <div className="rad-text">All</div>
       </label>
       {genresListClean}
     </div>
