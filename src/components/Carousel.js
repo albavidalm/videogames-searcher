@@ -10,7 +10,6 @@ const Carousel = (props) => {
       return { original: screenshot, thumbnail: screenshot };
     });
   };
-  console.log(images(props.screenshots));
 
   const someComponent = (props) => {
     // console.log(props.someProps.objectKey)

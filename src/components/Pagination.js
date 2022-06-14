@@ -1,10 +1,11 @@
 import React from "react";
 
-const Pagination = ({ prevPage, nextPage, onPrevious, onNext }) => {
+const Pagination = ({ prevPage, nextPage, onPrevious, onNext, totalGames }) => {
   const handlePrev = () => {
     onPrevious();
   };
   const handleNext = () => {
+    //debugger;
     onNext();
     // console.log(nextPage);
   };
@@ -19,6 +20,12 @@ const Pagination = ({ prevPage, nextPage, onPrevious, onNext }) => {
             </button>
           </li>
         )}
+        <p className="pagination__info">
+          Page of{" "}
+          <span className="pagination__info--number">
+            {Math.floor(totalGames / 20)}
+          </span>
+        </p>
         {nextPage && (
           <li>
             <button className="pagination__li--button" onClick={handleNext}>

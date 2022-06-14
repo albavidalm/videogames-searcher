@@ -23,9 +23,11 @@ export const getApiData = () => {
       // return cleanData;
       return {
         cleanData,
+        totalGames: data.count,
         nextPage: data.next,
         prevPage: data.previous,
       };
     })
+
     .catch((err) => console.error(err));
 };

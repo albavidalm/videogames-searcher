@@ -8,10 +8,10 @@ import Footer from "./Footer";
 import Filters from "./Filters";
 import GameList from "./GamesList";
 import GameDetail from "./GameDetail";
-import NotFoundPage from "./NotFoundPage";
 import NotFoundGame from "./NotFoundGame";
-import Pagination from "./Pagination";
+import NotFoundPage from "./NotFoundPage";
 import NotFoundSearch from "./NotFoundSearch";
+import Pagination from "./Pagination";
 
 const VideoGamesApp = () => {
   const [games, setGames] = useState(ls.get("games", []));
@@ -23,6 +23,7 @@ const VideoGamesApp = () => {
   const [sortFilter, setSortFilter] = useState(ls.get("sortFilter", "none"));
   const [prevPage, setPrevPage] = useState(ls.get("prevPage", ""));
   const [nextPage, setNextPage] = useState(ls.get("nextPage", ""));
+  const [totalGames, setTotalGames] = useState(ls.get("totalGames", ""));
 
   // Checking if data at LS
   useEffect(() => {
@@ -31,6 +32,7 @@ const VideoGamesApp = () => {
         setGames(gamesData.cleanData);
         setPrevPage(gamesData.prevPage);
         setNextPage(gamesData.nextPage);
+        setTotalGames(gamesData.totalGames);
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -45,6 +47,7 @@ const VideoGamesApp = () => {
     ls.set("sortFilter", sortFilter);
     ls.set("prevPage", prevPage);
     ls.set("nextPage", nextPage);
+    ls.set("totalGames", totalGames);
   }, [
     games,
     nameFilter,
@@ -53,6 +56,7 @@ const VideoGamesApp = () => {
     sortFilter,
     prevPage,
     nextPage,
+    totalGames,
   ]);
 
   // Event handlers
@@ -73,14 +77,7 @@ const VideoGamesApp = () => {
     getApiData(prevPage).then((gamesData) => setPrevPage(gamesData.prevPage));
   };
   //debugger;
-  const onNext = () => {
-    getApiData(nextPage).then((gamesData) => {
-      setNextPage(nextPage);
-      setGames(gamesData.cleanData);
-      // console.log(gamesData.cleanData);
-      // console.log("Next page -->" + nextPage);
-    });
-  };
+  const onNext = () => {};
 
   // Reset
   const handleReset = () => {
@@ -152,6 +149,7 @@ const VideoGamesApp = () => {
                       nextPage={nextPage}
                       onPrevious={onPrevious}
                       onNext={onNext}
+                      totalGames={totalGames}
                     />
                     <GameList games={filteredGames} />
                   </>
