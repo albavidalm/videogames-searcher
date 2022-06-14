@@ -26,6 +26,7 @@ const Carousel = (props) => {
       lazyLoad={true}
       showPlayButton={false}
       renderCustomControls={someComponent}
+      onErrorImageURL="https://filestore.community.support.microsoft.com/api/images/ext?url=https%3a%2f%2fanswersstaticfilecdnv2.azureedge.net%2fstatic%2fimages%2fimage-not-found.jpg"
     />
   );
 };

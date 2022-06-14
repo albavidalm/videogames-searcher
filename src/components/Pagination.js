@@ -23,7 +23,7 @@ const Pagination = ({ prevPage, nextPage, onPrevious, onNext, totalGames }) => {
         <p className="pagination__info">
           Page of{" "}
           <span className="pagination__info--number">
-            {Math.floor(totalGames / 20)}
+            {Math.floor(totalGames / 20) + 1}
           </span>
         </p>
         {nextPage && (

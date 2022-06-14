@@ -1,8 +1,9 @@
 //VIDEOGAMES API
+import defaultImage from "../assets/images/default.jpg";
 export const getApiData = () => {
   return fetch(
     "https://api.rawg.io/api/games?&key=30a842076eed4d7cb75b7a01f8307a40"
-    // "https://api.rawg.io/api/games?key=30a842076eed4d7cb75b7a01f8307a40&page=2"
+    // "https://api.rawg.io/api/games?key=30a842076eed4d7cb75b7a01f8307a40&page=2110"
   )
     .then((response) => response.json())
     .then((data) => {
@@ -10,7 +11,7 @@ export const getApiData = () => {
       const cleanData = data.results.map((game) => {
         return {
           name: game.name,
-          cover: game.background_image,
+          cover: game.background_image || defaultImage,
           id: game.id,
           rating: game.rating,
           released: game.released,

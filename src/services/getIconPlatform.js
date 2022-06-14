@@ -7,14 +7,22 @@ import ps2 from "../assets/images/ps2.svg";
 import ps3 from "../assets/images/ps3.svg";
 import ps4 from "../assets/images/ps4.svg";
 import ps5 from "../assets/images/ps5.svg";
+import psp from "../assets/images/psp.svg";
 import psvita from "../assets/images/psvita.svg";
 import n3ds from "../assets/images/n3ds.svg";
+import n64 from "../assets/images/n64.svg";
+import nds from "../assets/images/nds.svg";
+import nes from "../assets/images/nes.svg";
+import ngamecube from "../assets/images/ngamecube.svg";
+import snes from "../assets/images/snes.svg";
 import nswitch from "../assets/images/nswitch.svg";
+import sgenesis from "../assets/images/sgenesis.svg";
 import xone from "../assets/images/xone.svg";
 import xseries from "../assets/images/xseries.svg";
 import xbox from "../assets/images/xbox.svg";
 import x360 from "../assets/images/x360.svg";
 import web from "../assets/images/web.svg";
+import wii from "../assets/images/wii.svg";
 import wiiu from "../assets/images/wii-u.svg";
 
 const getIconPlatform = (platforms) => {
@@ -28,14 +36,22 @@ const getIconPlatform = (platforms) => {
     (platforms === "PlayStation 3" && ps3) ||
     (platforms === "PlayStation 4" && ps4) ||
     (platforms === "PlayStation 5" && ps5) ||
+    (platforms === "PSP" && psp) ||
     (platforms === "PS Vita" && psvita) ||
     (platforms === "Nintendo 3DS" && n3ds) ||
+    (platforms === "Nintendo 64" && n64) ||
+    (platforms === "Nintendo DS" && nds) ||
+    (platforms === "NES" && nes) ||
+    (platforms === "GameCube" && ngamecube) ||
+    (platforms === "SNES" && snes) ||
     (platforms === "Nintendo Switch" && nswitch) ||
+    (platforms === "Genesis" && sgenesis) ||
     (platforms === "Xbox One" && xone) ||
     (platforms === "Xbox Series S/X" && xseries) ||
     (platforms === "Xbox" && xbox) ||
     (platforms === "Xbox 360" && x360) ||
     (platforms === "Web" && web) ||
+    (platforms === "Wii" && wii) ||
     (platforms === "Wii U" && wiiu)
   );
 };
