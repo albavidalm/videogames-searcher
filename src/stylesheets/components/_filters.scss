@@ -1,23 +1,23 @@
 .form {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  animation: AnimationName 19s ease infinite;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  border-radius: 10px;
-  //border: 1px solid rgba(255, 255, 255, 0.18);
   background: linear-gradient(270deg, #fa8ffc3b, #3fd0f05d);
   background-size: 400% 400%;
   -webkit-animation: AnimationName 19s ease infinite;
   -moz-animation: AnimationName 19s ease infinite;
-  animation: AnimationName 19s ease infinite;
-  font-size: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  grid-area: form;
+  padding: 1rem;
   @include desktop {
     position: sticky;
     top: 0;
-    height: 100vh;
+    height: 100%;
   }
   &__select {
     display: flex;

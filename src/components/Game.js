@@ -28,27 +28,32 @@ const Game = (props) => {
   };
 
   return (
-    <div className="click">
-      <BtnFav />
+    // <div className="click">
+    <li className="card" id={props.game.id}>
+      <BtnFav
+        id={props.game.id}
+        cover={props.game.cover}
+        name={props.game.name}
+      />
 
       <Link to={`/game/${props.game.id}`}>
-        <li className="card">
-          {/* <a href={`/game/${props.game.id}`}>Details</a> */}
-          <div className="card__container--img">
-            <img
-              className="card__img"
-              src={props.game.cover}
-              alt={`${props.game.name} "cover"`}
-              title={props.game.name}
-            />
-          </div>
-          <h4 className="card__title">{props.game.name}</h4>
-          <ul className="card__genres">{renderGenres()}</ul>
-          <ul className="card__platforms">{renderPlatform()}</ul>
-          <p className="card__date">{props.game.released}</p>
-        </li>
+        {/* <a href={`/game/${props.game.id}`}>Details</a> */}
+        <div className="card__container--img">
+          <img
+            className="card__img"
+            src={props.game.cover}
+            alt={`${props.game.name} "cover"`}
+            title={props.game.name}
+          />
+        </div>
+        <h4 className="card__title">{props.game.name}</h4>
+        <ul className="card__genres">{renderGenres()}</ul>
+        <ul className="card__platforms">{renderPlatform()}</ul>
+        <p className="card__date">{props.game.released}</p>
       </Link>
-    </div>
+    </li>
+
+    // </div>
   );
 };
 
