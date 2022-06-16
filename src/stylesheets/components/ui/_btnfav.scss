@@ -1,3 +1,21 @@
+.favStar {
+  background-color: #aaaaaaae;
+  border: none;
+  border-radius: 50%;
+  color: #efc958;
+  font-size: 16px;
+  padding: 0.3rem;
+  position: absolute;
+  right: 0.3rem;
+  top: 0.3rem;
+  transition: all 0.3s ease;
+  z-index: 1000;
+  &:hover {
+    color: #aaaaaa;
+    background-color: #efc958a9;
+  }
+}
+
 .star {
   background-color: #aaaaaaae;
   border: none;
