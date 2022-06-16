@@ -7,8 +7,10 @@
   position: absolute;
   right: 0.3rem;
   top: 0.3rem;
+  transition: all 0.3s ease;
   z-index: 1000;
   &:hover {
     color: #efc958;
+    background-color: #efc958a9;
   }
 }

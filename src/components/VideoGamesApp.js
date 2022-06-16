@@ -25,6 +25,7 @@ const VideoGamesApp = () => {
   const [prevPage, setPrevPage] = useState(ls.get("prevPage", ""));
   const [nextPage, setNextPage] = useState(ls.get("nextPage", ""));
   const [totalGames, setTotalGames] = useState(ls.get("totalGames", ""));
+  const [favorites, setFavorites] = useState(ls.get("favorites", []));
 
   // Checking if data at LS
   useEffect(() => {
@@ -49,6 +50,7 @@ const VideoGamesApp = () => {
     ls.set("prevPage", prevPage);
     ls.set("nextPage", nextPage);
     ls.set("totalGames", totalGames);
+    ls.set("favorites", favorites);
   }, [
     games,
     nameFilter,
@@ -58,7 +60,24 @@ const VideoGamesApp = () => {
     prevPage,
     nextPage,
     totalGames,
+    favorites,
   ]);
+
+  // Favorites
+  const favoriteGame = (clickedGame) => {
+    const starredGame = favorites.find((game) => {
+      return game.id === clickedGame;
+    });
+    if (starredGame === undefined) {
+      const favGame = games.find((game) => {
+        return game.id === clickedGame;
+      });
+      setFavorites([...favorites, favGame]);
+      return;
+    }
+    const newFavorites = favorites.filter((game) => game.id !== clickedGame);
+    setFavorites(newFavorites);
+  };
 
   // Event handlers
   const handleFilter = (data) => {
@@ -137,7 +156,7 @@ const VideoGamesApp = () => {
                 filteredGames={filteredGames}
                 handleReset={handleReset}
               />
-              <Favorites />
+              <Favorites favorites={favorites} favoriteGame={favoriteGame} />
               <section className="gameList">
                 {filteredGames.length === 0 ? (
                   <NotFoundSearch
@@ -153,7 +172,11 @@ const VideoGamesApp = () => {
                       onNext={onNext}
                       totalGames={totalGames}
                     />
-                    <GameList games={filteredGames} />
+                    <GameList
+                      games={filteredGames}
+                      favorites={favorites}
+                      favoriteGame={favoriteGame}
+                    />
                   </>
                 )}
               </section>

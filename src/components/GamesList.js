@@ -1,9 +1,18 @@
 import Game from "./Game";
 
 const GameList = (props) => {
+  //console.log(props);
   const gameElements = props.games.map((game) => {
-    return <Game key={game.id} game={game} />;
+    return (
+      <Game
+        key={game.id}
+        game={game}
+        favorites={props.favorites}
+        favoriteGame={props.favoriteGame}
+      />
+    );
   });
+
   return (
     <>
       <section>

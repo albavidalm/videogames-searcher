@@ -1,12 +1,13 @@
-const BtnFav = ({ id, cover, name }) => {
-  //console.log(id);
+const BtnFav = ({ id, favoriteGame, isFavorite }) => {
   return (
     <button
       className="star"
       id={id}
-      onClick={() => console.log({ id, name, cover })}
+      onClick={() => {
+        favoriteGame(id);
+      }}
     >
-      <i className="far fa-star"></i>
+      <i className={isFavorite ? "far fa-star" : "fas fa-star"}></i>
     </button>
   );
 };

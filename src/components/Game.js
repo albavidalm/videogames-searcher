@@ -26,6 +26,9 @@ const Game = (props) => {
       );
     });
   };
+  const isFavorite = props.favorites.find(
+    (favorite) => favorite.id === props.game.id
+  );
 
   return (
     // <div className="click">
@@ -34,6 +37,8 @@ const Game = (props) => {
         id={props.game.id}
         cover={props.game.cover}
         name={props.game.name}
+        isFavorite={isFavorite}
+        favoriteGame={props.favoriteGame}
       />
 
       <Link to={`/game/${props.game.id}`}>
