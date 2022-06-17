@@ -107,6 +107,10 @@ const VideoGamesApp = () => {
     setSortFilter("none");
   };
 
+  const clearFavorites = () => {
+    setFavorites([]);
+  };
+
   // Render
   const filteredGames = games
     .filter((game) => {
@@ -156,7 +160,12 @@ const VideoGamesApp = () => {
                 filteredGames={filteredGames}
                 handleReset={handleReset}
               />
-              <Favorites favorites={favorites} favoriteGame={favoriteGame} />
+              <Favorites
+                games={games}
+                favorites={favorites}
+                favoriteGame={favoriteGame}
+                clearFavorites={clearFavorites}
+              />
               <section className="gameList">
                 {filteredGames.length === 0 ? (
                   <NotFoundSearch
