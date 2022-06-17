@@ -5,7 +5,7 @@ const ResetButton = (props) => {
   };
   return (
     <button className="form__reset" type="button" onClick={handleReset}>
-      Clear all <i className="fa-solid fa-trash-can"></i>
+      Clear all filters ♲
     </button>
   );
 };

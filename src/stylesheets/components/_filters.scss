@@ -72,8 +72,10 @@
 .filterTitle {
   color: #fff;
   margin-bottom: 0.2rem;
-  font-size: 1.02rem;
-  font-weight: bold;
+  font-family: $font-game_text;
+  font-weight: 600;
+  font-size: 16px;
+
   @include tablet {
     margin-right: 0.4rem;
   }
