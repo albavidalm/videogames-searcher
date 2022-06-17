@@ -35,6 +35,12 @@
     &--cards {
       display: flex;
       flex-direction: column;
+      @include tablet {
+        flex-direction: row;
+      }
+      @include desktop {
+        flex-direction: column;
+      }
     }
     &--reset {
       border: none;
