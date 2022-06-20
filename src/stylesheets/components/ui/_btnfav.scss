@@ -35,12 +35,23 @@
 
 .favDelete {
   border: none;
+  width: 1.3rem;
+  height: 1.3rem;
+  font-size: 16px;
+
+  padding: 0.1rem;
   border-radius: 50%;
   background-color: #a7a7a7;
   color: #3b3b3b;
   transition: all 0.3s ease;
+  z-index: 1000;
   &:hover {
     color: #a7a7a7;
     background-color: #3b3b3b;
+  }
+  @include tablet {
+    position: absolute;
+    left: -0.7rem;
+    top: -0.5rem;
   }
 }

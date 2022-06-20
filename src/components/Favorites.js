@@ -53,10 +53,7 @@ const Favorites = ({ games, favorites, favoriteGame, clearFavorites }) => {
       ) : (
         <section className="favorites__content">
           <ul className="favorites__content--cards">{favoriteGames}</ul>
-          <button
-            className="favorites__content--reset"
-            onClick={clearFavorites}
-          >
+          <button className="favorites__reset" onClick={clearFavorites}>
             Delete all favorites <i class="fas fa-trash-can"></i>
           </button>
         </section>

@@ -18,7 +18,7 @@
   @include desktop {
     position: sticky;
     top: 29rem;
-    max-height: 40rem;
+    max-height: 55vh;
     overflow-y: scroll;
   }
   &__title {
@@ -37,15 +37,12 @@
       flex-direction: column;
       @include tablet {
         flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
       }
       @include desktop {
         flex-direction: column;
       }
-    }
-    &--reset {
-      border: none;
-      width: auto;
-      margin: 0 auto;
     }
   }
 }
@@ -57,6 +54,15 @@
   margin: 0.3rem 0;
   align-items: center;
   justify-content: space-between;
+  @include tablet {
+    flex-direction: row-reverse;
+    width: 14.8rem;
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+  @include desktop {
+    margin: 0.48rem 0;
+  }
   &__link {
     display: flex;
     flex-direction: row;
