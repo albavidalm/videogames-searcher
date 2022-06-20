@@ -15,6 +15,7 @@ import Pagination from "./Pagination";
 import Favorites from "./Favorites";
 
 const VideoGamesApp = () => {
+  const [loading, setLoading] = useState(true);
   const [games, setGames] = useState(ls.get("games", []));
   const [nameFilter, setNameFilter] = useState(ls.get("nameFilter", ""));
   const [genreFilter, setGenreFilter] = useState(ls.get("genreFilter", "all"));

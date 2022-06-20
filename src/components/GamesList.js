@@ -1,14 +1,14 @@
 import Game from "./Game";
 
-const GameList = (props) => {
+const GameList = ({ games, favorites, favoriteGame }) => {
   //console.log(props);
-  const gameElements = props.games.map((game) => {
+  const gameElements = games.map((game) => {
     return (
       <Game
         key={game.id}
         game={game}
-        favorites={props.favorites}
-        favoriteGame={props.favoriteGame}
+        favorites={favorites}
+        favoriteGame={favoriteGame}
       />
     );
   });

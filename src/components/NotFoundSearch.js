@@ -1,9 +1,9 @@
-const NotFoundSearch = (props) => {
+const NotFoundSearch = ({ nameFilter, handleReset }) => {
   return (
     <>
       <h2 className="notFound__title">
         No video game matches your search{" "}
-        <span className="notFound__name">{props.nameFilter}</span>
+        <span className="notFound__name">{nameFilter}</span>
       </h2>
       <p className="notFound__text">
         Try again - check your spelling or enter less specific search terms.

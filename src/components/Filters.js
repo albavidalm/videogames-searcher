@@ -4,7 +4,16 @@ import FilterByPlatform from "./FilterByPlatform";
 import FilterSort from "./FilterSort";
 import ResetButton from "./ResetButton";
 
-const Filters = (props) => {
+const Filters = ({
+  genres,
+  handleFilter,
+  nameFilter,
+  platformFilter,
+  genreFilter,
+  sortFilter,
+  filteredGames,
+  handleReset,
+}) => {
   const handleSubmit = (ev) => {
     ev.preventDefault();
   };
@@ -12,30 +21,27 @@ const Filters = (props) => {
   return (
     <>
       <form className="form" onSubmit={handleSubmit}>
-        <FilterByName
-          handleFilter={props.handleFilter}
-          nameFilter={props.nameFilter}
-        />
+        <FilterByName handleFilter={handleFilter} nameFilter={nameFilter} />
         <div className="form__select">
           <FilterByPlatform
-            handleFilter={props.handleFilter}
-            platformFilter={props.platformFilter}
+            handleFilter={handleFilter}
+            platformFilter={platformFilter}
           />
           <FilterSort
-            handleFilter={props.handleFilter}
-            sortFilter={props.sortFilter}
-            filteredgames={props.filteredGames}
+            handleFilter={handleFilter}
+            sortFilter={sortFilter}
+            filteredgames={filteredGames}
           />
         </div>
         <>
           <h3 className="filterTitle titleGenre">Genre</h3>
           <FilterByGenre
-            genres={props.genres}
-            handleFilter={props.handleFilter}
-            genreFilter={props.genreFilter}
+            genres={genres}
+            handleFilter={handleFilter}
+            genreFilter={genreFilter}
           />
         </>
-        <ResetButton handleReset={props.handleReset} />
+        <ResetButton handleReset={handleReset} />
       </form>
     </>
   );
