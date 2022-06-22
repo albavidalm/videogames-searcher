@@ -173,27 +173,25 @@ const VideoGamesApp = () => {
               />
 
               {isLoading ? (
-                <GamesListSkeleton cards={10} />
+                <GamesListSkeleton cards={20} />
               ) : (
-                <>
-                  <section className="gameList">
-                    {filteredGames.length !== 0 && (
-                      <Pagination
-                        prevPage={prevPage}
-                        nextPage={nextPage}
-                        onPrevious={onPrevious}
-                        onNext={onNext}
-                        totalGames={totalGames}
-                      />
-                    )}
-
-                    <GameList
-                      games={filteredGames}
-                      favorites={favorites}
-                      favoriteGame={favoriteGame}
+                <section className="gameList">
+                  {filteredGames.length !== 0 && (
+                    <Pagination
+                      prevPage={prevPage}
+                      nextPage={nextPage}
+                      onPrevious={onPrevious}
+                      onNext={onNext}
+                      totalGames={totalGames}
                     />
-                  </section>
-                </>
+                  )}
+
+                  <GameList
+                    games={filteredGames}
+                    favorites={favorites}
+                    favoriteGame={favoriteGame}
+                  />
+                </section>
               )}
             </section>
           }

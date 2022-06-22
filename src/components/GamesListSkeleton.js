@@ -5,13 +5,16 @@ const GamesListSkeleton = ({ cards }) => {
     return Array(cards)
       .fill(0)
       .map((_, id) => (
-        <li className="card" key={id}>
-          <div className="card__container--img">
-            <Skeleton max-width={416} height={128} />
+        <li className="cardSK" key={id}>
+          <div className="cardSK__img">
+            <Skeleton height={"100%"} />
           </div>
 
-          <div>
-            <Skeleton count={4} height={12} />
+          <div className="cardSK__title">
+            <Skeleton height={16} />
+          </div>
+          <div className="cardSK__info">
+            <Skeleton count={3} height={12} />
           </div>
         </li>
       ));
