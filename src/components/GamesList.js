@@ -1,7 +1,7 @@
 import Game from "./Game";
 import NotFoundSearch from "./NotFoundSearch";
 
-const GameList = ({ games, favorites, favoriteGame, isLoading }) => {
+const GamesList = ({ games, favorites, favoriteGame, isLoading }) => {
   //console.log("in GameList ->" + isLoading);
   const gameElements = () => {
     if ((games.length === 0) & !isLoading) {
@@ -37,4 +37,4 @@ const GameList = ({ games, favorites, favoriteGame, isLoading }) => {
   );
 };
 
-export default GameList;
+export default GamesList;

@@ -3,20 +3,20 @@ import { Routes, Route } from "react-router-dom";
 import { useLocation, matchPath } from "react-router";
 import { getApiData } from "../services/getApiData";
 import { useFetchGames } from "../hooks/useFetchGames";
+import "react-loading-skeleton/dist/skeleton.css";
+import { SkeletonTheme } from "react-loading-skeleton";
 import ls from "../services/local-storage";
 import Header from "./Header";
 import Footer from "./Footer";
 import Filters from "./Filters";
-import GameList from "./GamesList";
+import GamesList from "./GamesList";
+import GamesListSkeleton from "./GamesListSkeleton";
 import GameDetail from "./GameDetail";
 import NotFoundGame from "./NotFoundGame";
 import NotFoundPage from "./NotFoundPage";
 // import NotFoundSearch from "./NotFoundSearch";
 import Pagination from "./Pagination";
 import Favorites from "./Favorites";
-import "react-loading-skeleton/dist/skeleton.css";
-import { SkeletonTheme } from "react-loading-skeleton";
-import GamesListSkeleton from "./GamesListSkeleton";
 
 const VideoGamesApp = () => {
   // const [games, setGames] = useState(ls.get("games", []));
@@ -186,7 +186,7 @@ const VideoGamesApp = () => {
                     />
                   )}
 
-                  <GameList
+                  <GamesList
                     games={filteredGames}
                     favorites={favorites}
                     favoriteGame={favoriteGame}

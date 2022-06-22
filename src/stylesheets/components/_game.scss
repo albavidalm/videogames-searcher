@@ -1,6 +1,6 @@
 .card {
   align-items: center;
-  border: 1px solid #008dd5;
+  border: 1px solid $color-main;
   border-radius: 10px;
   color: #fff;
   display: flex;
@@ -12,9 +12,9 @@
   width: 100%;
   position: relative;
   &:hover {
-    background-color: hsla(322, 87%, 56%, 0.4);
+    background-color: $color-card_hover;
     border: none;
-    box-shadow: hsla(322, 70%, 25%, 0.4) 0px 4px 12px;
+    box-shadow: $color-card_hover_shadow 0px 4px 12px;
     transform: scale(1.02);
   }
   @include tablet {

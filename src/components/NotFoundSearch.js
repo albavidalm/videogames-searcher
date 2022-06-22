@@ -1,6 +1,6 @@
-const NotFoundSearch = ({ nameFilter, handleReset }) => {
+const NotFoundSearch = ({ nameFilter }) => {
   return (
-    <>
+    <section className="notFound">
       <h2 className="notFound__title">
         No video game matches your search{" "}
         <span className="notFound__name">{nameFilter}</span>
@@ -14,7 +14,7 @@ const NotFoundSearch = ({ nameFilter, handleReset }) => {
         alt="not signal tv"
         className="notFound__img"
       />
-    </>
+    </section>
   );
 };
 

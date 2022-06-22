@@ -2,12 +2,12 @@
   animation: AnimationName 19s ease infinite;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  background: linear-gradient(270deg, #fa8ffc3b, #3fd0f05d);
+  background: $color-animated_bg;
   background-size: 400% 400%;
   -webkit-animation: AnimationName 19s ease infinite;
   -moz-animation: AnimationName 19s ease infinite;
   border-radius: 10px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: $color-animated_bg_shadow;
   color: #fff;
   display: flex;
   flex-direction: column;
