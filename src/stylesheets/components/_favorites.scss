@@ -14,11 +14,12 @@
   box-shadow: $color-animated_bg_shadow;
   color: #fff;
   padding: 1rem;
+  overflow-y: hidden;
   @include desktop {
     position: sticky;
     top: 29rem;
     max-height: 55vh;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
   &__title {
     font-family: $font-game_text;
@@ -27,7 +28,6 @@
     margin-top: 0;
   }
   &__content {
-    // border: 2px solid green;
     width: 100%;
     display: flex;
     flex-direction: column;
