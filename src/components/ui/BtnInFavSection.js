@@ -7,7 +7,7 @@ const BtnInFavSection = ({ id, favoriteGame, isFavorite }) => {
         favoriteGame(id);
       }}
     >
-      <i class="fas fa-xmark"></i>
+      <i className="fas fa-xmark"></i>
     </button>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useLocation, matchPath } from "react-router";
 import { getApiData } from "../services/getApiData";
+import { useFetchGames } from "../hooks/useFetchGames";
 import ls from "../services/local-storage";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -10,13 +11,16 @@ import GameList from "./GamesList";
 import GameDetail from "./GameDetail";
 import NotFoundGame from "./NotFoundGame";
 import NotFoundPage from "./NotFoundPage";
-import NotFoundSearch from "./NotFoundSearch";
+// import NotFoundSearch from "./NotFoundSearch";
 import Pagination from "./Pagination";
 import Favorites from "./Favorites";
+import "react-loading-skeleton/dist/skeleton.css";
+import { SkeletonTheme } from "react-loading-skeleton";
+import GamesListSkeleton from "./GamesListSkeleton";
 
 const VideoGamesApp = () => {
-  const [loading, setLoading] = useState(true);
-  const [games, setGames] = useState(ls.get("games", []));
+  // const [games, setGames] = useState(ls.get("games", []));
+  const { games, isLoading } = useFetchGames();
   const [nameFilter, setNameFilter] = useState(ls.get("nameFilter", ""));
   const [genreFilter, setGenreFilter] = useState(ls.get("genreFilter", "all"));
   const [platformFilter, setPlatformFilter] = useState(
@@ -32,7 +36,7 @@ const VideoGamesApp = () => {
   useEffect(() => {
     if (games.length === 0) {
       getApiData().then((gamesData) => {
-        setGames(gamesData.cleanData);
+        // setGames(gamesData.cleanData);
         setPrevPage(gamesData.prevPage);
         setNextPage(gamesData.nextPage);
         setTotalGames(gamesData.totalGames);
@@ -143,7 +147,7 @@ const VideoGamesApp = () => {
   const gameFound = games.find((game) => game.id === parseInt(gameId));
 
   return (
-    <>
+    <SkeletonTheme baseColor="#898989" highlightColor="#aaaaaa">
       <Header />
 
       <Routes>
@@ -167,29 +171,30 @@ const VideoGamesApp = () => {
                 favoriteGame={favoriteGame}
                 clearFavorites={clearFavorites}
               />
-              <section className="gameList">
-                {filteredGames.length === 0 ? (
-                  <NotFoundSearch
-                    nameFilter={nameFilter}
-                    handleReset={handleReset}
-                  />
-                ) : (
-                  <>
-                    <Pagination
-                      prevPage={prevPage}
-                      nextPage={nextPage}
-                      onPrevious={onPrevious}
-                      onNext={onNext}
-                      totalGames={totalGames}
-                    />
+
+              {isLoading ? (
+                <GamesListSkeleton cards={10} />
+              ) : (
+                <>
+                  <section className="gameList">
+                    {filteredGames.length !== 0 && (
+                      <Pagination
+                        prevPage={prevPage}
+                        nextPage={nextPage}
+                        onPrevious={onPrevious}
+                        onNext={onNext}
+                        totalGames={totalGames}
+                      />
+                    )}
+
                     <GameList
                       games={filteredGames}
                       favorites={favorites}
                       favoriteGame={favoriteGame}
                     />
-                  </>
-                )}
-              </section>
+                  </section>
+                </>
+              )}
             </section>
           }
         />
@@ -207,7 +212,7 @@ const VideoGamesApp = () => {
       </Routes>
 
       <Footer />
-    </>
+    </SkeletonTheme>
   );
 };
 
