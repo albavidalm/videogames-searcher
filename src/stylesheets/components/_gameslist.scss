@@ -1,8 +1,5 @@
 .gameList {
   grid-area: gameList;
-  @include desktop {
-    overflow: auto;
-  }
 }
 
 .cards {

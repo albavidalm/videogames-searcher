@@ -14,12 +14,7 @@
   font-size: 1rem;
   grid-area: form;
   padding: 1rem;
-  @include desktop {
-    position: sticky;
-    top: 0;
-    height: 100%;
-    min-height: 16.563rem;
-  }
+
   &__select {
     display: flex;
     flex-direction: column;

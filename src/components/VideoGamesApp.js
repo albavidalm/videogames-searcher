@@ -155,23 +155,24 @@ const VideoGamesApp = () => {
           path="/"
           element={
             <section className="main">
-              <Filters
-                genres={getGenres()}
-                handleFilter={handleFilter}
-                nameFilter={nameFilter}
-                platformFilter={platformFilter}
-                genreFilter={genreFilter}
-                sortFilter={sortFilter}
-                filteredGames={filteredGames}
-                handleReset={handleReset}
-              />
-              <Favorites
-                games={games}
-                favorites={favorites}
-                favoriteGame={favoriteGame}
-                clearFavorites={clearFavorites}
-              />
-
+              <section className="aside">
+                <Filters
+                  genres={getGenres()}
+                  handleFilter={handleFilter}
+                  nameFilter={nameFilter}
+                  platformFilter={platformFilter}
+                  genreFilter={genreFilter}
+                  sortFilter={sortFilter}
+                  filteredGames={filteredGames}
+                  handleReset={handleReset}
+                />
+                <Favorites
+                  games={games}
+                  favorites={favorites}
+                  favoriteGame={favoriteGame}
+                  clearFavorites={clearFavorites}
+                />
+              </section>
               {isLoading ? (
                 <GamesListSkeleton cards={20} />
               ) : (

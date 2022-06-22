@@ -1,0 +1,6 @@
+.aside {
+  @include desktop {
+    position: sticky;
+    top: 0;
+  }
+}
