@@ -15,7 +15,7 @@ import GameDetail from "./GameDetail";
 import NotFoundGame from "./NotFoundGame";
 import NotFoundPage from "./NotFoundPage";
 // import NotFoundSearch from "./NotFoundSearch";
-import Pagination from "./Pagination";
+//import Pagination from "./Pagination";
 import Favorites from "./Favorites";
 
 const VideoGamesApp = () => {
@@ -31,6 +31,18 @@ const VideoGamesApp = () => {
   const [nextPage, setNextPage] = useState(ls.get("nextPage", ""));
   const [totalGames, setTotalGames] = useState(ls.get("totalGames", ""));
   const [favorites, setFavorites] = useState(ls.get("favorites", []));
+
+  /* // Getting data for pagination
+  const onPrevious = () => {
+    getApiData(prevPage);
+    console.log(prevPage);
+  };
+  //debugger;
+  const onNext = () => {
+    getApiData(nextPage);
+    console.log(nextPage);
+  };
+  */
 
   // Checking if data at LS
   useEffect(() => {
@@ -96,13 +108,6 @@ const VideoGamesApp = () => {
       setSortFilter(data.value);
     }
   };
-
-  // Getting data for pagination
-  const onPrevious = () => {
-    getApiData(prevPage).then((gamesData) => setPrevPage(gamesData.prevPage));
-  };
-  //debugger;
-  const onNext = () => {};
 
   // Reset
   const handleReset = () => {
@@ -177,7 +182,7 @@ const VideoGamesApp = () => {
                 <GamesListSkeleton cards={20} />
               ) : (
                 <section className="gameList">
-                  {filteredGames.length !== 0 && (
+                  {/* {filteredGames.length !== 0 && (
                     <Pagination
                       prevPage={prevPage}
                       nextPage={nextPage}
@@ -185,7 +190,7 @@ const VideoGamesApp = () => {
                       onNext={onNext}
                       totalGames={totalGames}
                     />
-                  )}
+                  )} */}
 
                   <GamesList
                     games={filteredGames}

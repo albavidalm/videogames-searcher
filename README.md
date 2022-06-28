@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# 🎮 Video games search engine
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The project consists of a website with a list of video games, which we can filter by name, platform and genre. We can also sort the list alphabetically or by release date and save your favourite games in your local storage. Also if you click on a game you will navigate to its page where you will find more details as well as screenshots of the game.
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Further implementations](#further-implementations)
+  - [Screenshots](#screenshots)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+- [Author](#author)
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### The challenge
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- List of video games.
 
-### `npm test`
+  - I have used the service https://api.rawg.io/api/games which returns information on 20 games. On each one I have rendered:
+    - Name
+    - Cover
+    - Id
+    - Score
+    - Release date
+    - Gender
+    - Platform
+    - Screenshots
+    - Languages
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Filtering characters.
 
-### `npm run build`
+  - When typing a name in the input, only the video games whose name contains the written letters will be displayed in the interface.
+    It does not take into account if the letters are in upper/lower case.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Videogame detail.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  - When clicking on a video game card, its information will appear in its own page using routes and React router.
+  - In the detail screen, a carousel appears with different screenshots, name, platforms, genre, languages, rating and release date.
+  - When entering the detail of a game and then the user presses back, the text field will show the text it had previously.
+  - The platform is represented by an icon I created with the platform logo.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- URLs
 
-### `npm run eject`
+  - The URL of the video game detail is sharable, i.e. if we visit this URL directly in the browser, the detail of the video game is displayed. If we refresh the browser in the detail of a video game, it will show the detail of the video game again.
+  - If the user navigates to a non-existent URL, a page with the message "We can't find this game" will be displayed.
+  - If the interface does not find the video game searched for (by filling in the filters), the message "No video game matches your search" will be displayed.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Local storage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  - Add to local storage the API information (avoiding continuous API requests).
+  - It also stores the list of the user's favourite video games.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Skeleton loading
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  - While waiting to receive API information we will see a skeleton loading screen. It helps to keep users' attention, as well as informing them that loading processes are running.
 
-## Learn More
+- Responsive design
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  - I've created a different design for: mobile, tablet and desktop.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Animations
+  - The APP title displays an animation when loading.
+  - The filters background has an animation that change its colour.
 
-### Code Splitting
+### Further implementations
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+I'm working on the API pagination so that the user can navigate through the entire list of video games.
 
-### Analyzing the Bundle Size
+### Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![](./src/assets/images/screenshots-mobile_tablet.jpg)
+![](./src/assets/images/screenshots-desktop.jpg)
 
-### Making a Progressive Web App
+### Links
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Code: [https://github.dev/albavidalm/videogames-searcher/](https://github.dev/albavidalm/videogames-searcher)
+- Live: [https://albavidalm.github.io/videogames-searcher/](https://albavidalm.github.io/videogames-searcher/)
 
-### Advanced Configuration
+## My process
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Built with
 
-### Deployment
+- HTML5
+- CSS3
+- Grid
+- Sass
+- API
+- React
+- React image gallery
+- React loading skeleton
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### What I learned
 
-### `npm run build` fails to minify
+This is the first time I use the React image gallery and the React loading skeleton library.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Author
+
+- GitHub: [https://github.com/albavidalm](https://github.com/albavidalm)
+- Email: [albavidalm @ gmail.com](mailto:albavidalm@gmail.com?subject=Hi)
+- Linkedin: [https://www.linkedin.com/in/albavidalm/](https://www.linkedin.com/in/albavidalm/)
+
+## 🖤 Support
+
+Sharing is caring, contributions, PR and suggestions are always welcome.
