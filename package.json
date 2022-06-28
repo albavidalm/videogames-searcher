@@ -1,6 +1,6 @@
 {
   "name": "videogames",
-  "homepage": "./",
+  "homepage": "https://albavidalm.github.io/videogames-searcher/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
