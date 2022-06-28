@@ -78,7 +78,6 @@ I'm working on the API pagination so that the user can navigate through the enti
 ### Links
 
 - Code: [https://github.dev/albavidalm/videogames-searcher/](https://github.dev/albavidalm/videogames-searcher)
-- Live: [https://albavidalm.github.io/videogames-searcher/](https://albavidalm.github.io/videogames-searcher/)
 
 ## My process
 
