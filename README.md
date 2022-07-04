@@ -26,7 +26,7 @@ The project consists of a website with a list of video games, which we can filte
     - Id
     - Score
     - Release date
-    - Gender
+    - Genre
     - Platform
     - Screenshots
     - Languages
@@ -89,6 +89,7 @@ I'm working on the API pagination so that the user can navigate through the enti
 - Sass
 - API
 - React
+- React Router
 - React image gallery
 - React loading skeleton
 

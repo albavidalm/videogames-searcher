@@ -212,7 +212,7 @@ const VideoGamesApp = () => {
           <Route path="/game/*" element={<NotFoundGame />} />
         )}
 
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/*" element={<NotFoundPage />} />
       </Routes>
 
       <Footer />
