@@ -1,8 +1,4 @@
-const ResetButton = (props) => {
-  //console.log(props);
-  const handleReset = () => {
-    props.handleReset();
-  };
+const ResetButton = ({ handleReset }) => {
   return (
     <button className="form__reset" type="button" onClick={handleReset}>
       Clear all filters ♲

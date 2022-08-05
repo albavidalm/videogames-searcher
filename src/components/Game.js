@@ -39,7 +39,7 @@ const Game = ({ game, favorites, favoriteGame, isLoading }) => {
       />
 
       <Link to={`/game/${game.id}`}>
-        {/* <a href={`/game/${props.game.id}`}>Details</a> */}
+        {/* <a href={`/game/${game.id}`}>Details</a> */}
         <div className="card__container--img">
           <img
             className="card__img"

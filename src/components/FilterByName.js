@@ -1,6 +1,6 @@
-const FilterByName = (props) => {
+const FilterByName = ({ nameFilter, handleFilter }) => {
   const handleChange = (ev) => {
-    props.handleFilter({
+    handleFilter({
       value: ev.target.value,
       key: "name",
     });
@@ -14,7 +14,7 @@ const FilterByName = (props) => {
         name="name"
         id="name"
         placeholder="🔍 Search by name"
-        value={props.nameFilter}
+        value={nameFilter}
         autoFocus
         onChange={handleChange}
       />

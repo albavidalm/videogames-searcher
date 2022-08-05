@@ -1,6 +1,6 @@
-const FilterByPlatform = (props) => {
+const FilterByPlatform = ({ platformFilter, handleFilter }) => {
   const handleChange = (ev) => {
-    props.handleFilter({
+    handleFilter({
       value: ev.target.value,
       key: "platform",
     });
@@ -14,7 +14,7 @@ const FilterByPlatform = (props) => {
       <select
         className="formPlatform__select"
         name="platform"
-        value={props.platformFilter}
+        value={platformFilter}
         id="platform"
         onChange={handleChange}
       >

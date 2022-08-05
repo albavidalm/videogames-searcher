@@ -2,11 +2,11 @@ import React from "react";
 import getIconPlatform from "../services/getIconPlatform";
 import BtnGoBack from "./ui/BtnGoBack";
 import Carousel from "./Carousel";
+import NotFoundGame from "./NotFoundGame";
 
-const GameDetail = (props) => {
-  // console.log(props);
+const GameDetail = ({ gameDetail }) => {
   const renderPlatform = () => {
-    return props.gameDetail.platforms.map((platform, id) => {
+    return gameDetail.platforms.map((platform, id) => {
       return (
         <li key={id}>
           <img
@@ -20,7 +20,7 @@ const GameDetail = (props) => {
   };
 
   const renderGenres = () => {
-    return props.gameDetail.genres.map((genre, id) => {
+    return gameDetail.genres.map((genre, id) => {
       return (
         <li key={id} className="card__genres--genre detail-text">
           {genre}
@@ -29,33 +29,25 @@ const GameDetail = (props) => {
     });
   };
 
-  // const renderScreenshots = () => {
-  //   return props.gameDetail.screenshots.map((screenshot, id) => {
-  //     return (
-  //       <li className="card_img_screen" key={id}>
-  //         <a href={screenshot} target="_blank" rel="noreferrer">
-  //           <img className="card__screenshots" src={screenshot} alt="game" />
-  //         </a>
-  //       </li>
-  //     );
-  //   });
-  // };
+  if (gameDetail === undefined) {
+    return <NotFoundGame />;
+  }
 
   return (
     <>
       <BtnGoBack />
 
       <article className="detail">
-        <Carousel screenshots={props.gameDetail.screenshots} />
+        <Carousel screenshots={gameDetail.screenshots} />
         {/* <img
           className="detail__img"
-          src={props.gameDetail.cover}
-          alt={`${props.gameDetail.name}`}
-          title={props.gameDetail.name}
+          src={gameDetail.cover}
+          alt={`${gameDetail.name}`}
+          title={gameDetail.name}
         /> */}
 
         <section className="detail__info">
-          <h2 className="detail__info--title">{props.gameDetail.name}</h2>
+          <h2 className="detail__info--title">{gameDetail.name}</h2>
 
           <ul className="detail__info--container">{renderPlatform()}</ul>
 
@@ -69,23 +61,23 @@ const GameDetail = (props) => {
           <div className="detail__info--container">
             <h3 className="filterTitle">Language: </h3>
             <ul>
-              <li className="detail-text">{props.gameDetail.language}</li>
+              <li className="detail-text">{gameDetail.language}</li>
             </ul>
           </div>
 
           <div className="detail__info--container">
             <h3 className="filterTitle">Rating: </h3>
-            <p className="detail-text">{props.gameDetail.rating}</p>
+            <p className="detail-text">{gameDetail.rating}</p>
           </div>
 
           <div className="detail__info--container">
             <h3 className="filterTitle">Released:</h3>
-            <p className="detail-text">{props.gameDetail.released}</p>
+            <p className="detail-text">{gameDetail.released}</p>
           </div>
 
           {/* <h3 className="filterTitle">Screenshots: </h3>
           <ul className="screenshotUl">{renderScreenshots()}</ul> */}
-          {/* <Carousel screenshots={props.gameDetail.screenshots} /> */}
+          {/* <Carousel screenshots={gameDetail.screenshots} /> */}
         </section>
       </article>
     </>

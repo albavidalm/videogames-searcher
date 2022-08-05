@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useLocation, matchPath } from "react-router";
 import { getApiData } from "../services/getApiData";
@@ -147,8 +147,8 @@ const VideoGamesApp = () => {
 
   // Dynamic routes for specific game id
   const { pathname } = useLocation();
-  const routeData = matchPath("/game/:id", pathname);
-  const gameId = routeData !== null ? routeData.params.id : null;
+  const routeData = matchPath("game/:gameId", pathname);
+  const gameId = routeData !== null ? routeData.params.gameId : null;
   const gameFound = games.find((game) => game.id === parseInt(gameId));
 
   return (
@@ -196,6 +196,7 @@ const VideoGamesApp = () => {
                     games={filteredGames}
                     favorites={favorites}
                     favoriteGame={favoriteGame}
+                    nameFilter={nameFilter}
                   />
                 </section>
               )}
@@ -203,14 +204,10 @@ const VideoGamesApp = () => {
           }
         />
 
-        {gameFound ? (
-          <Route
-            path="/game/:id"
-            element={<GameDetail gameDetail={gameFound} />}
-          />
-        ) : (
-          <Route path="/game/*" element={<NotFoundGame />} />
-        )}
+        <Route
+          path="/game/:gameId"
+          element={<GameDetail gameDetail={gameFound} />}
+        />
 
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>

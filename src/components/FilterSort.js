@@ -1,15 +1,14 @@
-const FilterSort = (props) => {
-  //console.log(props);
+const FilterSort = ({ handleFilter, sortFilter, filteredgames }) => {
   const handleChange = (ev) => {
     // console.log(ev.target.value);
-    props.handleFilter({
+    handleFilter({
       value: ev.target.value,
       key: "sort",
     });
   };
 
-  if (props.sortFilter === "dateAsc") {
-    props.filteredgames.sort((a, b) => {
+  if (sortFilter === "dateAsc") {
+    filteredgames.sort((a, b) => {
       if (a.released > b.released) {
         return 1;
       }
@@ -18,8 +17,8 @@ const FilterSort = (props) => {
       }
       return 0;
     });
-  } else if (props.sortFilter === "dateDes") {
-    props.filteredgames.sort((a, b) => {
+  } else if (sortFilter === "dateDes") {
+    filteredgames.sort((a, b) => {
       if (a.released < b.released) {
         return 1;
       }
@@ -28,8 +27,8 @@ const FilterSort = (props) => {
       }
       return 0;
     });
-  } else if (props.sortFilter === "nameAsc") {
-    props.filteredgames.sort((a, b) => {
+  } else if (sortFilter === "nameAsc") {
+    filteredgames.sort((a, b) => {
       if (a.name > b.name) {
         return 1;
       }
@@ -38,8 +37,8 @@ const FilterSort = (props) => {
       }
       return 0;
     });
-  } else if (props.sortFilter === "nameDes") {
-    props.filteredgames.sort((a, b) => {
+  } else if (sortFilter === "nameDes") {
+    filteredgames.sort((a, b) => {
       if (a.name < b.name) {
         return 1;
       }
@@ -59,7 +58,7 @@ const FilterSort = (props) => {
       <select
         className="formDate__select"
         name="sort"
-        value={props.sortFilter}
+        value={sortFilter}
         id="sort"
         onChange={handleChange}
       >

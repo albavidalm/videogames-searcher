@@ -4,14 +4,14 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 import defaultImage from "../assets/images/default.jpg";
 
-const Carousel = (props) => {
+const Carousel = ({ screenshots }) => {
   const images = () => {
-    return props.screenshots.map((screenshot) => {
+    return screenshots.map((screenshot) => {
       return { original: screenshot, thumbnail: screenshot };
     });
   };
 
-  const someComponent = (props) => {
+  const someComponent = () => {
     // console.log(props.someProps.objectKey)
     return <div>{/* {props.someProps.objectKey} */}</div>;
   };

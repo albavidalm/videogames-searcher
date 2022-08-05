@@ -1,11 +1,16 @@
 import Game from "./Game";
 import NotFoundSearch from "./NotFoundSearch";
 
-const GamesList = ({ games, favorites, favoriteGame, isLoading }) => {
-  //console.log("in GameList ->" + isLoading);
+const GamesList = ({
+  games,
+  favorites,
+  favoriteGame,
+  isLoading,
+  nameFilter,
+}) => {
   const gameElements = () => {
     if ((games.length === 0) & !isLoading) {
-      return <NotFoundSearch />;
+      return <NotFoundSearch nameFilter={nameFilter} />;
     } else {
       return games.map((game) => {
         return (

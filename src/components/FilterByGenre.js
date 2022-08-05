@@ -1,7 +1,7 @@
-const FilterByGenre = (props) => {
+const FilterByGenre = ({ genres, handleFilter, genreFilter }) => {
   const handleChange = (ev) => {
     // console.log(ev.target.value);
-    props.handleFilter({
+    handleFilter({
       value: ev.target.value,
       key: "genre",
     });
@@ -9,7 +9,7 @@ const FilterByGenre = (props) => {
 
   const genresList = [];
 
-  const categories = [...props.genres].forEach((genre) =>
+  const categories = [...genres].forEach((genre) =>
     genre.forEach((category) => genresList.push(category))
   );
 
@@ -22,7 +22,7 @@ const FilterByGenre = (props) => {
           className="rad-input"
           value={genre}
           onChange={handleChange}
-          checked={genre === props.genreFilter}
+          checked={genre === genreFilter}
         />
         <div className="rad-design"></div>
         <div className="rad-text">{genre}</div>
