@@ -2,15 +2,20 @@
 
 The project consists of a website with a list of video games, which we can filter by name, platform and genre. We can also sort the list alphabetically or by release date and save your favourite games in your local storage. Also if you click on a game you will navigate to its page where you will find more details as well as screenshots of the game.
 
+## Screenshots
+
+![](./src/assets/images/screenshots-mobile_tablet.jpg)
+![](./src/assets/images/screenshots-desktop.jpg)
+
 ## Table of contents
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Further implementations](#further-implementations)
-  - [Screenshots](#screenshots)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
+  - [Setup](#setup)
   - [What I learned](#what-i-learned)
 - [Author](#author)
 
@@ -70,13 +75,9 @@ The project consists of a website with a list of video games, which we can filte
 
 I'm working on the API pagination so that the user can navigate through the entire list of video games.
 
-### Screenshots
-
-![](./src/assets/images/screenshots-mobile_tablet.jpg)
-![](./src/assets/images/screenshots-desktop.jpg)
-
 ### Links
 
+- Live: [https://albavidalm.github.io/videogames-searcher/](https://albavidalm.github.io/videogames-searcher/)
 - Code: [https://github.dev/albavidalm/videogames-searcher/](https://github.dev/albavidalm/videogames-searcher)
 
 ## My process
@@ -92,6 +93,17 @@ I'm working on the API pagination so that the user can navigate through the enti
 - React Router
 - React image gallery
 - React loading skeleton
+
+### Setup
+
+- Once you've download or cloned the project, install it with:
+  ```bash
+  npm install
+  ```
+- After that, if you want to run it in local execute this command:
+  ```bash
+  npm start
+  ```
 
 ### What I learned
 
