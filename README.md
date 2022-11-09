@@ -73,7 +73,8 @@ The project consists of a website with a list of video games, which we can filte
 
 ### Further implementations
 
-I'm working on the API pagination so that the user can navigate through the entire list of video games.
+I'm working on the API pagination so that the user can navigate through the entire list of video games. Next step, go to first and last page.
+After that improve and refactor the code.
 
 ### Links
 

@@ -12,45 +12,26 @@ import Filters from "./Filters";
 import GamesList from "./GamesList";
 import GamesListSkeleton from "./GamesListSkeleton";
 import GameDetail from "./GameDetail";
-import NotFoundGame from "./NotFoundGame";
 import NotFoundPage from "./NotFoundPage";
-// import NotFoundSearch from "./NotFoundSearch";
-//import Pagination from "./Pagination";
 import Favorites from "./Favorites";
+import Pagination from "./Pagination";
 
 const VideoGamesApp = () => {
-  // const [games, setGames] = useState(ls.get("games", []));
-  const { games, isLoading } = useFetchGames();
+  const { games, isLoading, prevPage, nextPage, onNext, goPrevPage } =
+    useFetchGames();
   const [nameFilter, setNameFilter] = useState(ls.get("nameFilter", ""));
   const [genreFilter, setGenreFilter] = useState(ls.get("genreFilter", "all"));
   const [platformFilter, setPlatformFilter] = useState(
     ls.get("platformFilter", "all")
   );
   const [sortFilter, setSortFilter] = useState(ls.get("sortFilter", "none"));
-  const [prevPage, setPrevPage] = useState(ls.get("prevPage", ""));
-  const [nextPage, setNextPage] = useState(ls.get("nextPage", ""));
   const [totalGames, setTotalGames] = useState(ls.get("totalGames", ""));
   const [favorites, setFavorites] = useState(ls.get("favorites", []));
-
-  /* // Getting data for pagination
-  const onPrevious = () => {
-    getApiData(prevPage);
-    console.log(prevPage);
-  };
-  //debugger;
-  const onNext = () => {
-    getApiData(nextPage);
-    console.log(nextPage);
-  };
-  */
 
   // Checking if data at LS
   useEffect(() => {
     if (games.length === 0) {
       getApiData().then((gamesData) => {
-        // setGames(gamesData.cleanData);
-        setPrevPage(gamesData.prevPage);
-        setNextPage(gamesData.nextPage);
         setTotalGames(gamesData.totalGames);
       });
     }
@@ -182,15 +163,15 @@ const VideoGamesApp = () => {
                 <GamesListSkeleton cards={20} />
               ) : (
                 <section className="gameList">
-                  {/* {filteredGames.length !== 0 && (
+                  {filteredGames.length !== 0 && (
                     <Pagination
                       prevPage={prevPage}
                       nextPage={nextPage}
-                      onPrevious={onPrevious}
+                      goPrevPage={goPrevPage}
                       onNext={onNext}
                       totalGames={totalGames}
                     />
-                  )} */}
+                  )}
 
                   <GamesList
                     games={filteredGames}
