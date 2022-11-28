@@ -1,9 +1,9 @@
 //VIDEOGAMES API
 import defaultImage from "../assets/images/default.jpg";
 
-const initialUrl =
-  "https://api.rawg.io/api/games?key=30a842076eed4d7cb75b7a01f8307a40";
 export const getApiData = (page) => {
+  const initialUrl =
+    "https://api.rawg.io/api/games?key=30a842076eed4d7cb75b7a01f8307a40";
   return fetch(page || initialUrl)
     .then((response) => response.json())
     .then((data) => {
@@ -21,12 +21,12 @@ export const getApiData = (page) => {
           language: [...new Set(game.tags.map((lang) => lang.language))],
         };
       });
-      // return cleanData;
       return {
         cleanData,
         totalGames: data.count,
         nextPage: data.next,
         prevPage: data.previous,
+        initialUrl,
       };
     })
 

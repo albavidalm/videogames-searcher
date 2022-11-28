@@ -17,22 +17,33 @@ import Favorites from "./Favorites";
 import Pagination from "./Pagination";
 
 const VideoGamesApp = () => {
-  const { games, isLoading, prevPage, nextPage, onNext, goPrevPage } =
-    useFetchGames();
+  const {
+    games,
+    isLoading,
+    //totalGames,
+    prevPage,
+    nextPage,
+    totalPages,
+    //initialUrl,
+    onNext,
+    goPrevPage,
+    goFirstPage,
+    goLastPage,
+  } = useFetchGames();
   const [nameFilter, setNameFilter] = useState(ls.get("nameFilter", ""));
   const [genreFilter, setGenreFilter] = useState(ls.get("genreFilter", "all"));
   const [platformFilter, setPlatformFilter] = useState(
     ls.get("platformFilter", "all")
   );
   const [sortFilter, setSortFilter] = useState(ls.get("sortFilter", "none"));
-  const [totalGames, setTotalGames] = useState(ls.get("totalGames", ""));
+  //const [totalGames, setTotalGames] = useState(ls.get("totalGames", ""));
   const [favorites, setFavorites] = useState(ls.get("favorites", []));
 
   // Checking if data at LS
   useEffect(() => {
     if (games.length === 0) {
       getApiData().then((gamesData) => {
-        setTotalGames(gamesData.totalGames);
+        //setTotalGames(gamesData.totalGames);
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -47,7 +58,8 @@ const VideoGamesApp = () => {
     ls.set("sortFilter", sortFilter);
     ls.set("prevPage", prevPage);
     ls.set("nextPage", nextPage);
-    ls.set("totalGames", totalGames);
+    // ls.set("totalGames", totalGames);
+    ls.set("totalPages", totalPages);
     ls.set("favorites", favorites);
   }, [
     games,
@@ -57,7 +69,8 @@ const VideoGamesApp = () => {
     sortFilter,
     prevPage,
     nextPage,
-    totalGames,
+    // totalGames,
+    totalPages,
     favorites,
   ]);
 
@@ -169,7 +182,10 @@ const VideoGamesApp = () => {
                       nextPage={nextPage}
                       goPrevPage={goPrevPage}
                       onNext={onNext}
-                      totalGames={totalGames}
+                      goFirstPage={goFirstPage}
+                      goLastPage={goLastPage}
+                      // totalGames={totalGames}
+                      totalPages={totalPages}
                     />
                   )}
 
