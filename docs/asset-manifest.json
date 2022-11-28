@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.ce980ce2.css",
-    "main.js": "./static/js/main.f78c1555.js",
+    "main.js": "./static/js/main.1e5eb9a4.js",
     "static/media/gameboyadv.svg": "./static/media/gameboyadv.8f28a4a198465579ca019b4bcdc69bce.svg",
     "static/media/default.jpg": "./static/media/default.265239978ff69b60ed85.jpg",
     "static/media/atarijaguar.svg": "./static/media/atarijaguar.b29330f0905f3763f9bc9d771e2c87ef.svg",
@@ -45,10 +45,10 @@
     "static/media/macos.svg": "./static/media/macos.fbd65ca602c711151aba5beb583d27cc.svg",
     "static/media/pc.svg": "./static/media/pc.0cc0e9f59eff47a9bfc38c36ab740913.svg",
     "main.ce980ce2.css.map": "./static/css/main.ce980ce2.css.map",
-    "main.f78c1555.js.map": "./static/js/main.f78c1555.js.map"
+    "main.1e5eb9a4.js.map": "./static/js/main.1e5eb9a4.js.map"
   },
   "entrypoints": [
     "static/css/main.ce980ce2.css",
-    "static/js/main.f78c1555.js"
+    "static/js/main.1e5eb9a4.js"
   ]
 }
