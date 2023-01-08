@@ -110,6 +110,7 @@ Another challenge I wanted to achieve was that the user could paginate the data.
 
 ### Built with
 
+- [npm](https://www.npmjs.com/) Version 6.14.12
 - [HTML5](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [CSS3](https://developer.mozilla.org/es/docs/Web/CSS)
 - [Grid](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Grid_Layout)
@@ -300,6 +301,8 @@ Also, this is the first time I use the React image gallery and the React loading
 <br>
 
 ### Further implementations
+
+- Testing is very important, so far I haven't had time to add to it but it is one of the first tasks I have pending.
 
 - I would like to improve the pagination, especially the call to the last page.
 
