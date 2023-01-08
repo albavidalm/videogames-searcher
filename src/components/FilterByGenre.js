@@ -1,6 +1,5 @@
 const FilterByGenre = ({ genres, handleFilter, genreFilter }) => {
   const handleChange = (ev) => {
-    // console.log(ev.target.value);
     handleFilter({
       value: ev.target.value,
       key: "genre",

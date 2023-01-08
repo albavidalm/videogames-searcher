@@ -39,12 +39,6 @@ const GameDetail = ({ gameDetail }) => {
 
       <article className="detail">
         <Carousel screenshots={gameDetail.screenshots} />
-        {/* <img
-          className="detail__img"
-          src={gameDetail.cover}
-          alt={`${gameDetail.name}`}
-          title={gameDetail.name}
-        /> */}
 
         <section className="detail__info">
           <h2 className="detail__info--title">{gameDetail.name}</h2>
@@ -74,10 +68,6 @@ const GameDetail = ({ gameDetail }) => {
             <h3 className="filterTitle">Released:</h3>
             <p className="detail-text">{gameDetail.released}</p>
           </div>
-
-          {/* <h3 className="filterTitle">Screenshots: </h3>
-          <ul className="screenshotUl">{renderScreenshots()}</ul> */}
-          {/* <Carousel screenshots={gameDetail.screenshots} /> */}
         </section>
       </article>
     </>

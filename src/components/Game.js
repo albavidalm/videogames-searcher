@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import getIconPlatform from "../services/getIconPlatform";
 import BtnFav from "./ui/BtnFav";
 
-const Game = ({ game, favorites, favoriteGame, isLoading }) => {
+const Game = ({ game, favorites, favoriteGame }) => {
   const renderGenres = () => {
     return game.genres.map((genre, id) => {
       return (
@@ -39,7 +39,6 @@ const Game = ({ game, favorites, favoriteGame, isLoading }) => {
       />
 
       <Link to={`/game/${game.id}`}>
-        {/* <a href={`/game/${game.id}`}>Details</a> */}
         <div className="card__container--img">
           <img
             className="card__img"

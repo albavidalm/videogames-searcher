@@ -10,7 +10,6 @@ const BtnFav = ({ id, favoriteGame, isFavorite }) => {
       {isFavorite ? (
         <i className="fa-solid fa-star"></i>
       ) : (
-        // <p className="starmoji">⭐️</p>
         <i className="fa-regular fa-star"></i>
       )}
     </button>

@@ -1,4 +1,3 @@
-//VIDEOGAMES API
 import defaultImage from "../assets/images/default.jpg";
 
 export const getApiData = (page) => {
@@ -7,7 +6,6 @@ export const getApiData = (page) => {
   return fetch(page || initialUrl)
     .then((response) => response.json())
     .then((data) => {
-      //console.log(data);
       const cleanData = data.results.map((game) => {
         return {
           name: game.name,
@@ -32,6 +30,3 @@ export const getApiData = (page) => {
 
     .catch((err) => console.error(err));
 };
-
-// "https://api.rawg.io/api/games?&key=30a842076eed4d7cb75b7a01f8307a40"
-// "https://api.rawg.io/api/games?key=30a842076eed4d7cb75b7a01f8307a40&page=2110"

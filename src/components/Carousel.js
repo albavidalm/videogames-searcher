@@ -12,7 +12,6 @@ const Carousel = ({ screenshots }) => {
   };
 
   const someComponent = () => {
-    // console.log(props.someProps.objectKey)
     return <div>{/* {props.someProps.objectKey} */}</div>;
   };
 

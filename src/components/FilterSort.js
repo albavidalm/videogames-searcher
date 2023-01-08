@@ -1,6 +1,5 @@
 const FilterSort = ({ handleFilter, sortFilter, filteredgames }) => {
   const handleChange = (ev) => {
-    // console.log(ev.target.value);
     handleFilter({
       value: ev.target.value,
       key: "sort",

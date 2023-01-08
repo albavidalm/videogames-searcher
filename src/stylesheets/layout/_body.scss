@@ -3,7 +3,6 @@
     display: grid;
     grid-template-columns: 1fr 4fr;
     grid-column-gap: 1.6rem;
-    //grid-template-rows: 1fr 1fr 30px;
     grid-template-areas:
       "form gameList gameList"
       "favorites gameList gameList"

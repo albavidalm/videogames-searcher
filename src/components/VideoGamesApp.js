@@ -20,11 +20,9 @@ const VideoGamesApp = () => {
   const {
     games,
     isLoading,
-    //totalGames,
     prevPage,
     nextPage,
     totalPages,
-    //initialUrl,
     onNext,
     goPrevPage,
     goFirstPage,
@@ -36,15 +34,12 @@ const VideoGamesApp = () => {
     ls.get("platformFilter", "all")
   );
   const [sortFilter, setSortFilter] = useState(ls.get("sortFilter", "none"));
-  //const [totalGames, setTotalGames] = useState(ls.get("totalGames", ""));
   const [favorites, setFavorites] = useState(ls.get("favorites", []));
 
   // Checking if data at LS
   useEffect(() => {
     if (games.length === 0) {
-      getApiData().then((gamesData) => {
-        //setTotalGames(gamesData.totalGames);
-      });
+      getApiData().then((gamesData) => {});
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -58,7 +53,6 @@ const VideoGamesApp = () => {
     ls.set("sortFilter", sortFilter);
     ls.set("prevPage", prevPage);
     ls.set("nextPage", nextPage);
-    // ls.set("totalGames", totalGames);
     ls.set("totalPages", totalPages);
     ls.set("favorites", favorites);
   }, [
@@ -69,7 +63,6 @@ const VideoGamesApp = () => {
     sortFilter,
     prevPage,
     nextPage,
-    // totalGames,
     totalPages,
     favorites,
   ]);
@@ -120,11 +113,7 @@ const VideoGamesApp = () => {
     .filter((game) => {
       return game.name.toUpperCase().includes(nameFilter.toUpperCase());
     })
-    // //Filter by genre hardcored
-    // .filter((game) => {
-    //   return genreFilter === "all" ? true : game.genres.includes(genreFilter);
-    // })
-    // Filter for dynamic gender
+
     .filter((game) => {
       return genreFilter === "all" ? true : game.genres.includes(genreFilter);
     })
@@ -184,7 +173,6 @@ const VideoGamesApp = () => {
                       onNext={onNext}
                       goFirstPage={goFirstPage}
                       goLastPage={goLastPage}
-                      // totalGames={totalGames}
                       totalPages={totalPages}
                     />
                   )}

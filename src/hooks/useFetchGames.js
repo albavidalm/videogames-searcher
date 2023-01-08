@@ -5,13 +5,10 @@ export const useFetchGames = () => {
   const [games, setGames] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [totalGames, setTotalGames] = useState("totalGames", "");
-
-  //const [lastPage, setLastPage] = useState("lastPage", "");
   const [prevPage, setPrevPage] = useState("prevPage", "");
   const [nextPage, setNextPage] = useState("nextPage", "");
 
   const totalPages = Math.floor(totalGames / 20) + 1;
-  //const [initialUrl, setInitialUrl] = useState("initialUrl", "");
 
   useEffect(() => {
     getApiData().then((gamesData) => {
@@ -54,7 +51,7 @@ export const useFetchGames = () => {
       setNextPage(gamesData.nextPage);
     });
   };
-  //console.log(games);
+
   return {
     games,
     isLoading,
