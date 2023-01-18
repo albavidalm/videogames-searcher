@@ -20,7 +20,6 @@ const Pagination = ({
     wordPosition = prevPage.indexOf(pageWord);
     actualPage = parseInt(prevPage.slice(wordPosition + 5)) + 1;
   }
-  console.log(disabledButton);
   return (
     <nav>
       <ul className="pagination">

@@ -30,6 +30,7 @@
     min-height: 11.4rem;
     overflow: hidden;
     width: 100%;
+    max-height: 14rem;
     @include tablet {
       height: 8rem;
       min-height: 8rem;
@@ -38,6 +39,7 @@
   &__img {
     min-height: 11.4rem;
     object-fit: cover;
+    max-height: 100%;
   }
   &__title {
     text-align: center;
