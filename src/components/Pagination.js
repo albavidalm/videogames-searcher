@@ -27,12 +27,20 @@ const Pagination = ({
         {prevPage && (
           <>
             <li className="pagination__li">
-              <button className="pagination__li--button" onClick={goFirstPage}>
+              <button
+                className="pagination__li--button"
+                disabled={disabledButton}
+                onClick={goFirstPage}
+              >
                 <i className="fa-solid fa-backward-fast"></i> First
               </button>
             </li>
             <li className="pagination__li">
-              <button className="pagination__li--button" onClick={goPrevPage}>
+              <button
+                className="pagination__li--button"
+                disabled={disabledButton}
+                onClick={goPrevPage}
+              >
                 <i className="fa-solid fa-backward"></i> Prev
               </button>
             </li>
@@ -48,7 +56,11 @@ const Pagination = ({
         {nextPage && (
           <>
             <li>
-              <button className="pagination__li--button" onClick={onNext}>
+              <button
+                className="pagination__li--button"
+                disabled={disabledButton}
+                onClick={onNext}
+              >
                 Next <i className="fa-solid fa-forward"></i>
               </button>
             </li>

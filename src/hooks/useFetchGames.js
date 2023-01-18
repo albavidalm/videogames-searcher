@@ -22,25 +22,31 @@ export const useFetchGames = () => {
   }, []);
 
   const onNext = () => {
+    setDisabledButton(true);
     getApiData(nextPage).then((gamesData) => {
       setGames(gamesData.cleanData);
       setPrevPage(gamesData.prevPage);
       setNextPage(gamesData.nextPage);
+      setDisabledButton(false);
     });
   };
 
   const goPrevPage = () => {
+    setDisabledButton(true);
     getApiData(prevPage).then((gamesData) => {
       setGames(gamesData.cleanData);
       setPrevPage(gamesData.prevPage);
       setNextPage(gamesData.nextPage);
+      setDisabledButton(false);
     });
   };
   const goFirstPage = () => {
+    setDisabledButton(true);
     getApiData().then((gamesData) => {
       setGames(gamesData.cleanData);
       setPrevPage(gamesData.prevPage);
       setNextPage(gamesData.nextPage);
+      setDisabledButton(false);
     });
   };
   const goLastPage = () => {
