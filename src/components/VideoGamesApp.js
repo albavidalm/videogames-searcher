@@ -23,6 +23,7 @@ const VideoGamesApp = () => {
     prevPage,
     nextPage,
     totalPages,
+    disabledButton,
     onNext,
     goPrevPage,
     goFirstPage,
@@ -174,6 +175,7 @@ const VideoGamesApp = () => {
                       goFirstPage={goFirstPage}
                       goLastPage={goLastPage}
                       totalPages={totalPages}
+                      disabledButton={disabledButton}
                     />
                   )}
 

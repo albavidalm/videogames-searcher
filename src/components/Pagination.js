@@ -8,6 +8,7 @@ const Pagination = ({
   goFirstPage,
   goLastPage,
   totalPages,
+  disabledButton,
 }) => {
   const pageWord = "page=";
   let wordPosition;
@@ -19,7 +20,7 @@ const Pagination = ({
     wordPosition = prevPage.indexOf(pageWord);
     actualPage = parseInt(prevPage.slice(wordPosition + 5)) + 1;
   }
-
+  console.log(disabledButton);
   return (
     <nav>
       <ul className="pagination">
@@ -52,7 +53,11 @@ const Pagination = ({
               </button>
             </li>
             <li>
-              <button className="pagination__li--button" onClick={goLastPage}>
+              <button
+                className="pagination__li--button"
+                disabled={disabledButton}
+                onClick={goLastPage}
+              >
                 Last <i className="fa-solid fa-forward-fast"></i>
               </button>
             </li>

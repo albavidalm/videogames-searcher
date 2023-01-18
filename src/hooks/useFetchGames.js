@@ -7,6 +7,7 @@ export const useFetchGames = () => {
   const [totalGames, setTotalGames] = useState("totalGames", "");
   const [prevPage, setPrevPage] = useState("prevPage", "");
   const [nextPage, setNextPage] = useState("nextPage", "");
+  const [disabledButton, setDisabledButton] = useState(false);
 
   const totalPages = Math.floor(totalGames / 20) + 1;
 
@@ -43,12 +44,14 @@ export const useFetchGames = () => {
     });
   };
   const goLastPage = () => {
+    setDisabledButton(true);
     getApiData(
       `https://api.rawg.io/api/games?&key=30a842076eed4d7cb75b7a01f8307a40&page=${totalPages}`
     ).then((gamesData) => {
       setGames(gamesData.cleanData);
       setPrevPage(gamesData.prevPage);
       setNextPage(gamesData.nextPage);
+      setDisabledButton(false);
     });
   };
 
@@ -62,5 +65,6 @@ export const useFetchGames = () => {
     goPrevPage,
     goFirstPage,
     goLastPage,
+    disabledButton,
   };
 };
