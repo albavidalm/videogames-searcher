@@ -1,7 +1,7 @@
 .card {
   align-items: center;
-  border: 1px solid $color-main;
   border-radius: 10px;
+  border: 1px solid $color-main;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -9,8 +9,8 @@
   height: 26rem;
   margin-bottom: 1.5rem;
   padding: 0.6rem;
-  width: 100%;
   position: relative;
+  width: 100%;
   &:hover {
     background-color: $color-card_hover;
     border: none;
@@ -30,7 +30,7 @@
     min-height: 11.4rem;
     overflow: hidden;
     width: 100%;
-    max-height: 14rem;
+    max-height: 12.6rem;
     @include tablet {
       height: 8rem;
       min-height: 8rem;
