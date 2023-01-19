@@ -20,6 +20,9 @@ const Pagination = ({
     wordPosition = prevPage.indexOf(pageWord);
     actualPage = parseInt(prevPage.slice(wordPosition + 5)) + 1;
   }
+  const stringActualPage = actualPage.toString();
+  const stringTotalPages = totalPages.toString();
+
   return (
     <nav>
       <ul className="pagination">
@@ -46,11 +49,10 @@ const Pagination = ({
           </>
         )}
         <p className="pagination__info">
-          Page <span className="pagination__info--number">{actualPage}</span> of{" "}
-          <span className="pagination__info--number">
-            {/* Total games calculated in page {Math.floor(totalGames / 20) + 1} */}
-            {totalPages}
-          </span>
+          Page{" "}
+          <span className="pagination__info--number">{stringActualPage}</span>{" "}
+          of{" "}
+          <span className="pagination__info--number">{stringTotalPages}</span>
         </p>
         {nextPage && (
           <>
