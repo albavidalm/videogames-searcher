@@ -163,7 +163,16 @@ const VideoGamesApp = () => {
                 />
               </section>
               {isLoading ? (
-                <GamesListSkeleton cards={20} />
+                <GamesListSkeleton
+                  cards={20}
+                  prevPage={prevPage}
+                  nextPage={nextPage}
+                  goPrevPage={goPrevPage}
+                  onNext={onNext}
+                  goFirstPage={goFirstPage}
+                  goLastPage={goLastPage}
+                  totalPages={totalPages}
+                />
               ) : (
                 <section className="gameList">
                   {filteredGames.length !== 0 && (

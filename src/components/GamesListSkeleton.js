@@ -1,6 +1,16 @@
 import Skeleton from "react-loading-skeleton";
+import Pagination from "./Pagination";
 
-const GamesListSkeleton = ({ cards }) => {
+const GamesListSkeleton = ({
+  cards,
+  prevPage,
+  nextPage,
+  goPrevPage,
+  onNext,
+  goFirstPage,
+  goLastPage,
+  totalPages,
+}) => {
   const skeletonCards = () => {
     return Array(cards)
       .fill(0)
@@ -21,9 +31,21 @@ const GamesListSkeleton = ({ cards }) => {
   };
 
   return (
-    <section>
-      <ul className="cards">{skeletonCards()}</ul>
-    </section>
+    <>
+      <section className="gameList">
+        <Pagination
+          prevPage={prevPage}
+          nextPage={nextPage}
+          goPrevPage={goPrevPage}
+          onNext={onNext}
+          goFirstPage={goFirstPage}
+          goLastPage={goLastPage}
+          totalPages={totalPages}
+          disabledButton={true}
+        />
+        <ul className="cards">{skeletonCards()}</ul>
+      </section>
+    </>
   );
 };
 
