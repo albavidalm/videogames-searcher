@@ -23,34 +23,41 @@ export const useFetchGames = () => {
 
   const onNext = () => {
     setDisabledButton(true);
+    setIsLoading(true);
     getApiData(nextPage).then((gamesData) => {
       setGames(gamesData.cleanData);
       setPrevPage(gamesData.prevPage);
       setNextPage(gamesData.nextPage);
       setDisabledButton(false);
+      setIsLoading(false);
     });
   };
 
   const goPrevPage = () => {
     setDisabledButton(true);
+    setIsLoading(true);
     getApiData(prevPage).then((gamesData) => {
       setGames(gamesData.cleanData);
       setPrevPage(gamesData.prevPage);
       setNextPage(gamesData.nextPage);
       setDisabledButton(false);
+      setIsLoading(false);
     });
   };
   const goFirstPage = () => {
     setDisabledButton(true);
+    setIsLoading(true);
     getApiData().then((gamesData) => {
       setGames(gamesData.cleanData);
       setPrevPage(gamesData.prevPage);
       setNextPage(gamesData.nextPage);
       setDisabledButton(false);
+      setIsLoading(false);
     });
   };
   const goLastPage = () => {
     setDisabledButton(true);
+    setIsLoading(true);
     getApiData(
       `https://api.rawg.io/api/games?&key=30a842076eed4d7cb75b7a01f8307a40&page=${totalPages}`
     ).then((gamesData) => {
@@ -58,6 +65,7 @@ export const useFetchGames = () => {
       setPrevPage(gamesData.prevPage);
       setNextPage(gamesData.nextPage);
       setDisabledButton(false);
+      setIsLoading(false);
     });
   };
 
